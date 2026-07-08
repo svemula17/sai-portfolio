@@ -1252,18 +1252,51 @@ html, body { overflow-anchor: none; }
 .jscene-head h2 { font-size: clamp(24px, 3.4vw, 42px); letter-spacing: -0.02em; }
 .jscene-sub { color: var(--muted); font-family: var(--font-mono); font-size: 13px; margin-top: var(--sp-2); }
 
-/* ----- Laptop (CSS 3D) ----- */
+/* ----- Laptop (CSS 3D MacBook) ----- */
 .jscene--laptop { perspective: 1600px; }
-.laptop { width: min(760px, 82vw); }
-.laptop-lid { transform-origin: 50% 100%; transform-style: preserve-3d; }
+.laptop { position: relative; width: min(760px, 82vw); }
+/* soft floor shadow under the machine */
+.laptop::after {
+  content: "";
+  position: absolute; left: 2%; right: 2%; bottom: -28px; height: 36px;
+  background: radial-gradient(50% 100% at 50% 0%, rgba(0,0,0,.5), transparent 70%);
+  filter: blur(7px);
+  z-index: -1;
+  pointer-events: none;
+}
+/* aluminum lid frame around the glass */
+.laptop-lid {
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  padding: 9px 9px 11px;
+  border-radius: 18px 18px 6px 6px;
+  background: linear-gradient(180deg, #3c4149, #2a2e35 60%, #23272e);
+  box-shadow: 0 34px 80px -32px rgba(0,0,0,.72), inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.4);
+}
 .laptop-screen {
   position: relative;
-  border-radius: 14px 14px 4px 4px;
+  border-radius: 10px;
   background: linear-gradient(158deg, #0b0f16, #0f1622 60%, #0b1119);
-  border: 2px solid #1b2330;
-  border-bottom-width: 3px;
   overflow: hidden;
-  box-shadow: 0 44px 90px -34px rgba(0,0,0,.65), inset 0 0 0 1px rgba(255,255,255,.02);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+}
+/* camera notch — sits over the menubar like a MacBook Pro */
+.laptop-screen::before {
+  content: "";
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 16%; height: 12px;
+  background: radial-gradient(circle at 50% 60%, #182030 0 1.6px, #06070a 2.6px);
+  border-radius: 0 0 8px 8px;
+  z-index: 5;
+}
+/* glass reflection sweep */
+.laptop-screen::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg, rgba(255,255,255,.055) 0%, rgba(255,255,255,.015) 30%, transparent 46%);
+  border-radius: inherit;
+  z-index: 4;
+  pointer-events: none;
 }
 /* fixed screen ratio only in cinematic mode; fallback lets the screen grow with content */
 .journey.is-cinematic .laptop-screen { aspect-ratio: 16 / 10.8; }
@@ -1284,16 +1317,26 @@ html, body { overflow-anchor: none; }
 }
 .laptop-base {
   position: relative;
-  width: 112%; margin-left: -6%;
-  height: 18px;
-  border-radius: 3px 3px 16px 16px;
-  background: linear-gradient(180deg, #141b28, #0a0e15);
-  border: 2px solid #1b2330; border-top: none;
-  box-shadow: 0 34px 44px -22px rgba(0,0,0,.6);
+  width: 114%; margin-left: -7%;
+  height: 22px;
+  border-radius: 4px 4px 18px 18px;
+  background: linear-gradient(180deg, #40454d 0%, #2c3037 20%, #23272e 70%, #191c22 100%);
+  box-shadow: 0 26px 36px -18px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.2);
 }
+/* hinge shadow where the lid meets the deck */
+.laptop-base::before {
+  content: "";
+  position: absolute; top: 0; left: 5.5%; right: 5.5%; height: 5px;
+  background: linear-gradient(180deg, rgba(0,0,0,.55), transparent);
+  border-radius: 4px 4px 0 0;
+}
+/* thumb scoop */
 .laptop-notch {
   position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-  width: 15%; height: 6px; border-radius: 0 0 9px 9px; background: #1b2330;
+  width: 13%; height: 9px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, #101319, #23272e);
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,.55);
 }
 
 /* ----- Mini OS inside the screen (fixed dark palette — the screen is always dark) ----- */
@@ -1377,11 +1420,11 @@ html, body { overflow-anchor: none; }
   width: max-content; margin: 0 auto 8px;
 }
 .os-dock {
-  display: flex; gap: 16px;
-  padding: 8px 14px 6px;
+  display: flex; gap: 12px;
+  padding: 7px 12px 5px;
   background: rgba(14,20,30,.55);
   border: 1px solid rgba(255,255,255,.1);
-  border-radius: 18px;
+  border-radius: 14px;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -1391,21 +1434,22 @@ html, body { overflow-anchor: none; }
   cursor: pointer;
 }
 .dock-glyph {
-  display: grid; place-items: center;
-  width: 42px; height: 42px;
-  border-radius: 11px;
-  color: #fff; font-family: var(--font-mono); font-size: 13px; font-weight: 500; letter-spacing: .02em;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.28);
+  display: block;
+  width: 34px; height: 34px;
+  border-radius: 9px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 12px -6px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.4);
 }
-.dock-app[data-app="datadog"]      .dock-glyph { background: linear-gradient(170deg, #8b5cf6, #632CA6); }
-.dock-app[data-app="browserstack"] .dock-glyph { background: linear-gradient(170deg, #fb923c, #d9640e); }
-.dock-app[data-app="nseit"]        .dock-glyph { background: linear-gradient(170deg, #60a5fa, #2563eb); }
+.dock-glyph img { width: 100%; height: 100%; object-fit: contain; padding: 3px; }
+/* NSEIT's wordmark is wide — crop to its hexagon gem like an app icon */
+.dock-app[data-app="nseit"] .dock-glyph img { object-fit: cover; object-position: left center; padding: 0; }
 .dock-dot {
   width: 4px; height: 4px; border-radius: 50%;
   background: var(--accent-2);
   opacity: 0; /* GSAP lights the active app's dot */
 }
-.dock-year { font-family: var(--font-mono); font-size: 10.5px; color: #9aa3b2; letter-spacing: .05em; }
+.dock-year { font-family: var(--font-mono); font-size: 10px; color: #9aa3b2; letter-spacing: .05em; }
 .dock-label {
   position: absolute; bottom: calc(100% + 9px); left: 50%; transform: translateX(-50%);
   padding: 3px 9px; border-radius: 6px;
@@ -1414,8 +1458,10 @@ html, body { overflow-anchor: none; }
   opacity: 0; pointer-events: none; transition: opacity .18s var(--ease);
   z-index: 4;
 }
+.dock-progress-row { display: flex; align-items: center; gap: 8px; margin: 0 2px; }
+.dock-cap { font-family: var(--font-mono); font-size: 9.5px; color: #8b93a1; letter-spacing: .04em; white-space: nowrap; }
 .dock-progress {
-  height: 3px; margin: 0 8px;
+  flex: 1; height: 3px;
   border-radius: 99px;
   background: rgba(255,255,255,.1);
   overflow: hidden;
@@ -1429,7 +1475,7 @@ html, body { overflow-anchor: none; }
 }
 @media (pointer: fine) {
   .dock-glyph { transition: transform .18s var(--ease); }
-  .dock-app:hover .dock-glyph { transform: translateY(-6px) scale(1.16); }
+  .dock-app:hover .dock-glyph { transform: translateY(-5px) scale(1.12); }
   .dock-app:hover .dock-label { opacity: 1; }
 }
 
@@ -1440,8 +1486,12 @@ html, body { overflow-anchor: none; }
   position: absolute; inset: 0; margin: 0; max-width: none;
   justify-content: center; padding: 0 var(--sp-8); will-change: opacity, transform;
 }
-/* width also capped by viewport height so the zoomed laptop always fits */
-.journey.is-cinematic .laptop { width: min(900px, 88vw, calc((100vh - 40px) * 1.2)); }
+/* width also capped by viewport height so the zoomed laptop always fits
+   (frame + base included in the ratio) */
+.journey.is-cinematic .laptop { width: min(900px, 88vw, calc((100vh - 20px) * 1.15)); }
+/* window text scales with viewport height so six bullets never clip */
+.journey.is-cinematic .os-points li { font-size: clamp(10.5px, 1.5vh, 12px); }
+.journey.is-cinematic .os-chip { font-size: clamp(10px, 1.35vh, 11px); }
 .journey.is-cinematic .journey-hint {
   display: block; position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
   font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--muted);
