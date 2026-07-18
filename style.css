@@ -4,28 +4,29 @@
    ========================================================= */
 
 :root {
-  /* color — light (refined fallback theme) */
-  --bg:        #ffffff;
-  --surface:   #f6f7f9;
+  /* color — warm ivory editorial (primary theme, Anthropic-inspired) */
+  --bg:        #faf9f5;
+  --surface:   #f0efe9;
   --card:      #ffffff;
-  --ink:       #0a0c10;
-  --ink-2:     #33383f;
-  --muted:     #6b7280;
-  --muted-2:   #9aa1ab;
-  --border:    #e8eaed;
-  --border-2:  #d3d7dd;
-  --accent:    #111418;          /* primary button fill */
-  --accent-ink:#ffffff;
-  --accent-2:  #0e9f6e;          /* emerald — "live / verified / secure" */
-  --accent-soft: rgba(14,159,110,.12);
+  --ink:       #141413;
+  --ink-2:     #3d3d3a;
+  --muted:     #6e6e68;
+  --muted-2:   #9c9a92;
+  --border:    rgba(20,20,19,.12);
+  --border-2:  rgba(20,20,19,.24);
+  --accent:    #141413;          /* primary button fill */
+  --accent-ink:#faf9f5;
+  --accent-2:  #c15f3c;          /* clay — warm accent */
+  --accent-soft: rgba(193,95,60,.13);
   --glass:     #ffffff;
-  --glass-2:   #f1f3f6;
-  --glow-1:    rgba(14,159,110,.16);
-  --glow-2:    rgba(37,99,235,.10);
-  --focus:     #2563eb;
+  --glass-2:   #f0efe9;
+  --glow-1:    rgba(193,95,60,.12);
+  --glow-2:    rgba(20,20,19,.05);
+  --focus:     #c15f3c;
 
   /* type */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --fs-xs:  13px;
   --fs-sm:  14px;
@@ -165,18 +166,36 @@ p { margin: 0; }
   width: 8px;
   height: 8px;
   border-radius: var(--r-pill);
-  background: #10b981;
-  box-shadow: 0 0 0 4px rgba(16,185,129,.14);
+  background: var(--accent-2);
+  box-shadow: 0 0 0 4px var(--accent-soft);
   animation: pulse 2.4s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 4px rgba(16,185,129,.14); }
-  50%      { box-shadow: 0 0 0 6px rgba(16,185,129,.07); }
+  0%, 100% { box-shadow: 0 0 0 4px var(--accent-soft); }
+  50%      { box-shadow: 0 0 0 7px transparent; }
 }
 @media (prefers-reduced-motion: reduce) { .status-dot { animation: none; } }
 .mono { font-family: var(--font-mono); letter-spacing: 0; }
 .small { font-size: var(--fs-sm); }
 .muted { color: var(--muted); }
+
+/* editorial serif voice — display headlines + narrative copy */
+.hero-title,
+.section-head h2,
+.contact-inner h2,
+.proj-text h3,
+.edu-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -.012em;
+}
+.hero-lead,
+.about-body p,
+.contact-lead,
+.proj-text > p {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
 
 /* =========================================================
    Container
@@ -242,7 +261,7 @@ p { margin: 0; }
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(255,255,255,.85);
+  background: rgba(250,249,245,.85);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--border);
@@ -406,6 +425,23 @@ p { margin: 0; }
   min-height: 100svh;
   padding: clamp(84px, 13vh, 150px) 0 clamp(28px, 5vh, 52px);
   background: var(--bg);
+}
+/* GitHub-contributions animated grid behind the hero */
+.hero-contrib {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .55;
+  /* recede behind the headline — strong at the edges, quiet in the middle */
+  -webkit-mask-image: radial-gradient(85% 72% at 50% 44%, rgba(0,0,0,.16) 0%, rgba(0,0,0,.5) 52%, #000 88%);
+  mask-image: radial-gradient(85% 72% at 50% 44%, rgba(0,0,0,.16) 0%, rgba(0,0,0,.5) 52%, #000 88%);
+  /* keep the graph subtle behind the headline, vivid at the edges */
+  -webkit-mask-image: radial-gradient(ellipse 64% 58% at 50% 44%, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 52%, #000 88%);
+  mask-image: radial-gradient(ellipse 64% 58% at 50% 44%, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 52%, #000 88%);
 }
 .hero-glow {
   position: absolute;
@@ -1339,7 +1375,66 @@ html, body { overflow-anchor: none; }
   box-shadow: inset 0 -2px 3px rgba(0,0,0,.55);
 }
 
-/* silver MacBook in the bright theme (screen itself stays dark) */
+/* ----- Light-theme OS — the screen follows the site theme (macOS light mode) ----- */
+[data-ui="light"] .laptop-screen {
+  background: linear-gradient(158deg, #eef0f4, #f6f7f9 60%, #eceef2);
+  box-shadow: inset 0 0 0 1px rgba(20,20,19,.06);
+}
+[data-ui="light"] .laptop-screen-glow {
+  background: radial-gradient(120% 78% at 50% 0%, rgba(193,95,60,.10), transparent 58%);
+}
+[data-ui="light"] .os-wallpaper {
+  background:
+    radial-gradient(90% 80% at 18% 88%, rgba(193,95,60,.14), transparent 55%),
+    radial-gradient(70% 65% at 85% 12%, rgba(96,165,250,.12), transparent 60%),
+    linear-gradient(160deg, #f2f3f6, #eaecf0 55%, #eef0f4);
+}
+[data-ui="light"] .os-menubar {
+  color: #3d3d3a;
+  background: rgba(248,249,250,.72);
+  border-bottom: 1px solid rgba(20,20,19,.08);
+}
+[data-ui="light"] .os-apple { color: #141413; }
+[data-ui="light"] .os-appname { color: #141413; }
+[data-ui="light"] .os-menus { color: #6e6e68; }
+[data-ui="light"] .os-glyph { color: #3d3d3a; }
+[data-ui="light"] .os-clock { color: #3d3d3a; }
+[data-ui="light"] .os-window {
+  background: linear-gradient(170deg, #ffffff, #f5f6f8);
+  border: 1px solid rgba(20,20,19,.12);
+  box-shadow: 0 24px 60px -22px rgba(25,35,52,.35);
+}
+[data-ui="light"] .os-titlebar {
+  background: rgba(20,20,19,.035);
+  border-bottom: 1px solid rgba(20,20,19,.08);
+}
+[data-ui="light"] .os-title { color: #6e6e68; }
+[data-ui="light"] .os-role { color: #141413; }
+[data-ui="light"] .os-dates { color: #6e6e68; }
+[data-ui="light"] .os-chip {
+  background: rgba(193,95,60,.08);
+  border-color: rgba(193,95,60,.28);
+  color: #55554f;
+}
+[data-ui="light"] .os-chip b { color: #c15f3c; }
+[data-ui="light"] .os-points { border-top-color: rgba(20,20,19,.09); }
+[data-ui="light"] .os-points li { color: #4a4a45; }
+[data-ui="light"] .os-points li::before { color: #c15f3c; }
+[data-ui="light"] .os-dock {
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(20,20,19,.1);
+}
+[data-ui="light"] .dock-glyph { box-shadow: 0 6px 12px -6px rgba(25,35,52,.35), inset 0 1px 0 rgba(255,255,255,.6); }
+[data-ui="light"] .dock-dot { background: #c15f3c; }
+[data-ui="light"] .dock-label {
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(20,20,19,.12);
+  color: #3d3d3a;
+}
+[data-ui="light"] .dock-progress { background: rgba(20,20,19,.1); }
+[data-ui="light"] .dock-progress-fill { background: linear-gradient(90deg, #c15f3c, #e0906c); }
+
+/* silver MacBook body in the bright theme */
 [data-ui="light"] .laptop-lid {
   background: linear-gradient(180deg, #eceef1, #d2d6db 60%, #c3c7ce);
   box-shadow: 0 34px 80px -32px rgba(25,35,52,.4), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -1px 0 rgba(0,0,0,.12);
@@ -1431,7 +1526,7 @@ html, body { overflow-anchor: none; }
   position: relative; padding: 3px 0 3px 17px;
   color: #9aa3b2; font-size: 12px; line-height: 1.5;
 }
-.os-points li::before { content: "▸"; position: absolute; left: 0; color: var(--accent-2); }
+.os-points li::before { content: "▸"; position: absolute; left: 0; color: #34d399; } /* screen keeps its own emerald accent */
 
 /* dock + timeline progress — cinematic only */
 .os-dockwrap { display: none; }
