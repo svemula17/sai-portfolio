@@ -30,7 +30,7 @@
   <!-- Swiper — recommendations carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="style.css?v=65" />
+  <link rel="stylesheet" href="style.css?v=70" />
 </head>
 
 <body>
@@ -73,6 +73,9 @@
           <span id="roleTyper" aria-hidden="true">DevSecOps Engineer</span><span class="type-caret" aria-hidden="true"></span>
         </p>
         <h1 class="hero-title reveal">Sai Kumar Vemula</h1>
+        <p class="hero-impact reveal" aria-hidden="true">
+          <span>Security</span><span class="hl">Is My Craft</span>
+        </p>
         <p class="hero-lead reveal">
           I secure cloud infrastructure and CI/CD pipelines — embedding SAST/DAST gates
           into delivery, hardening AWS and Kubernetes, and automating detection and
@@ -316,9 +319,11 @@
 
             <article class="proj-slide is-active" data-case-key="siem">
               <div class="proj-text">
+                <span class="proj-index" aria-hidden="true">01</span>
                 <p class="eyebrow">SIEM / SOAR</p>
                 <h3>Smart SIEM Risk Engine</h3>
                 <p>Automated SIEM solution for security monitoring, log analysis, and threat detection that reduces SOC alert fatigue. Features a machine learning-based risk scoring engine (Random Forest) for threat classification and alert prioritization, with real-time dashboards, GeoIP visualization, and incident response automation.</p>
+                <p class="proj-stack-label">Tech stack used</p>
                 <ul class="proj-tags">
                   <li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
                 </ul>
@@ -334,9 +339,11 @@
 
             <article class="proj-slide" data-case-key="pentest">
               <div class="proj-text">
+                <span class="proj-index" aria-hidden="true">02</span>
                 <p class="eyebrow">Offensive AI</p>
                 <h3>AI Pen-Test Agent</h3>
                 <p>An autonomous penetration testing agent that decides which hacking tools to run, reads their output, figures out the next move, and writes a professional security report. Supports Claude, Gemini, or a built-in deterministic planner. Enforces hard safety rails — locked to DVWA lab targets only, with 17 integrated tools including nmap, gobuster, sqlmap, and Metasploit parsers.</p>
+                <p class="proj-stack-label">Tech stack used</p>
                 <ul class="proj-tags">
                   <li>Python</li><li>Claude API</li><li>nmap</li><li>sqlmap</li><li>Burp Suite</li>
                 </ul>
@@ -352,9 +359,11 @@
 
             <article class="proj-slide" data-case-key="cloud">
               <div class="proj-text">
+                <span class="proj-index" aria-hidden="true">03</span>
                 <p class="eyebrow">Cloud Security</p>
                 <h3>Cloud Security &amp; Deception Platform</h3>
                 <p>AI-driven cloud security platform for CSPM, detecting misconfigurations across AWS services (IAM, S3, EC2). Performs cloud risk assessment and threat modeling mapped to MITRE ATT&amp;CK and CIS Benchmarks. Implements deception technology (honeypots) and real-time alerting to improve threat detection, incident response, and MTTD/MTTR.</p>
+                <p class="proj-stack-label">Tech stack used</p>
                 <ul class="proj-tags">
                   <li>Python</li><li>AWS</li><li>TensorFlow</li><li>Scikit-learn</li><li>Terraform</li>
                 </ul>
@@ -370,9 +379,11 @@
 
             <article class="proj-slide" data-case-key="attackid">
               <div class="proj-text">
+                <span class="proj-index" aria-hidden="true">04</span>
                 <p class="eyebrow">Detection Engineering</p>
                 <h3>Attack Identification Tool</h3>
                 <p>A SIEM pipeline that ingests raw IDS/IPS logs (Suricata, Zeek), normalizes them through strict Pydantic validation, applies heuristic risk scoring (0–100) across severity, exploitability, and target dimensions, and triggers automated playbook responses — blocking critical IPs, flagging medium threats, and archiving low-risk events. Streams results to a real-time glassmorphism dashboard via WebSockets.</p>
+                <p class="proj-stack-label">Tech stack used</p>
                 <ul class="proj-tags">
                   <li>Python</li><li>FastAPI</li><li>SQLite</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
                 </ul>
@@ -821,7 +832,7 @@
   <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <!-- Swiper — recommendations carousel -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js?v=30"></script>
+  <script src="script.js?v=31"></script>
   <script src="animations.js?v=3"></script>
   <script defer src="contrib-bg.js?v=3"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
