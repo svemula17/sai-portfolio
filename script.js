@@ -451,7 +451,6 @@
     });
 
     sr.reveal(".hero-title",    { origin: "top",   delay: 100 });
-    sr.reveal(".hero-impact",   { origin: "top",   delay: 150 });
     sr.reveal(".hero-lead",     { origin: "top",   delay: 200 });
     sr.reveal(".hero-contact",  { origin: "left",  delay: 400 });
     sr.reveal(".hero-actions",  { delay: 500 });
