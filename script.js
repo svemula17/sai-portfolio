@@ -154,6 +154,35 @@
     });
   });
 
+  /* ----- Contact form -----
+     GitHub Pages is static, so there's nothing to POST to. Submitting
+     composes a prefilled email in the visitor's own client instead —
+     no third-party endpoint, no key to leak. */
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    const note = document.getElementById("formNote");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const data = new FormData(contactForm);
+      const name = (data.get("name") || "").toString().trim();
+      const email = (data.get("email") || "").toString().trim();
+      const topic = (data.get("topic") || "").toString();
+      const message = (data.get("message") || "").toString().trim();
+
+      const subject = `${topic} — ${name}`;
+      const body = `${message}\n\n—\n${name}\n${email}`;
+      const href = `mailto:svemula127@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = href;
+      if (note) {
+        note.textContent = "Opening your email app…";
+        setTimeout(() => { note.textContent = ""; }, 4000);
+      }
+    });
+  }
+
   /* ----- Certifications expand ----- */
   const certToggle = document.getElementById("certToggle");
   const certMore = document.getElementById("certMore");
