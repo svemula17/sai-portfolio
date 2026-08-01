@@ -185,6 +185,27 @@
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
     const note = document.getElementById("formNote");
+    const messageBox = document.getElementById("contactMessage");
+
+    /* Starters drop a first line into the box and double as the subject,
+       which used to come from the removed topic dropdown. */
+    let chosenSubject = "";
+    contactForm.querySelectorAll(".prompt-chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        const prompt = chip.getAttribute("data-prompt") || "";
+        chosenSubject = chip.getAttribute("data-subject") || "";
+
+        contactForm.querySelectorAll(".prompt-chip").forEach(c => {
+          c.classList.toggle("is-active", c === chip);
+        });
+
+        messageBox.value = prompt;
+        messageBox.focus();
+        /* drop the caret at the end so they type straight into it */
+        messageBox.setSelectionRange(prompt.length, prompt.length);
+      });
+    });
+
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!contactForm.reportValidity()) return;
@@ -192,10 +213,9 @@
       const data = new FormData(contactForm);
       const name = (data.get("name") || "").toString().trim();
       const email = (data.get("email") || "").toString().trim();
-      const topic = (data.get("topic") || "").toString();
       const message = (data.get("message") || "").toString().trim();
 
-      const subject = `${topic} — ${name}`;
+      const subject = chosenSubject ? `${chosenSubject} — ${name}` : `Portfolio enquiry — ${name}`;
       const body = `${message}\n\n—\n${name}\n${email}`;
       const href = `mailto:svemula127@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 

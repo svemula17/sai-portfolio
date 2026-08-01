@@ -1087,7 +1087,6 @@ html { background: var(--bg); }
   margin-bottom: var(--sp-2);
 }
 .field input,
-.field select,
 .field textarea {
   width: 100%;
   font: inherit;
@@ -1100,24 +1099,41 @@ html { background: var(--bg); }
   transition: border-color var(--t) var(--ease), background-color var(--t) var(--ease);
 }
 .field textarea { resize: vertical; min-height: 120px; }
+
+/* message starters — one tap fills the box for whoever's reaching out */
+.prompt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--sp-3);
+}
+.prompt-chip {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  padding: 4px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: transparent;
+  transition: border-color var(--t) var(--ease), color var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+.prompt-chip:hover {
+  border-color: var(--accent-2);
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+.prompt-chip.is-active {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: var(--accent-soft);
+}
 .field input::placeholder,
 .field textarea::placeholder { color: var(--muted-2); }
 .field input:focus,
-.field select:focus,
 .field textarea:focus {
   outline: none;
   border-color: var(--accent-2);
   background: var(--card);
-}
-/* native select arrow differs per platform — draw our own for consistency */
-.field select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
-  background-position: calc(100% - 18px) calc(50% + 2px), calc(100% - 13px) calc(50% + 2px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-right: 38px;
 }
 .contact-submit { width: 100%; justify-content: center; margin-top: var(--sp-2); }
 .form-note { margin-top: var(--sp-3); min-height: 1.2em; }

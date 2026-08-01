@@ -27,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=51" />
+  <link rel="stylesheet" href="style.css?v=52" />
 </head>
 
 <body>
@@ -715,21 +715,20 @@
               <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
             </label>
 
-            <label class="field">
-              <span class="field-label">What&rsquo;s this about?</span>
-              <select name="topic">
-                <option>Full-time role</option>
-                <option>Contract / consulting</option>
-                <option>Security review or audit</option>
-                <option>Collaboration</option>
-                <option>Something else</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span class="field-label">Message</span>
-              <textarea name="message" rows="5" placeholder="Tell me a bit about the role or project." required></textarea>
-            </label>
+            <div class="field">
+              <label class="field-label" for="contactMessage">Message</label>
+              <div class="prompt-chips" role="group" aria-label="Start from a template">
+                <button type="button" class="prompt-chip" data-subject="Role opportunity"
+                  data-prompt="Hi Sai — we're hiring a DevSecOps / Cloud Security Engineer and your AWS and CI/CD background looks like a strong match. About the role: ">Hiring for a role</button>
+                <button type="button" class="prompt-chip" data-subject="Interview request"
+                  data-prompt="Hi Sai — we'd like to set up an intro call about an opening on our security team. Are you available this week? ">Interview request</button>
+                <button type="button" class="prompt-chip" data-subject="Contract engagement"
+                  data-prompt="Hi Sai — we have a short-term security engagement (cloud hardening, pipeline security) and could use your help. Scope and timeline: ">Contract work</button>
+                <button type="button" class="prompt-chip" data-subject="Referral / intro"
+                  data-prompt="Hi Sai — I came across your portfolio and wanted to connect. I think you'd be a fit for a role in my network: ">Referral or intro</button>
+              </div>
+              <textarea id="contactMessage" name="message" rows="5" placeholder="Pick a starter above, or write your own." required></textarea>
+            </div>
 
             <button type="submit" class="btn-pill contact-submit">Send message</button>
             <p class="form-note mono small muted" id="formNote" role="status" aria-live="polite"></p>
@@ -808,7 +807,7 @@
     </article>
   </div>
 
-  <script src="script.js?v=23"></script>
+  <script src="script.js?v=24"></script>
   <script src="animations.js?v=3"></script>
   <script defer src="contrib-bg.js?v=3"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
