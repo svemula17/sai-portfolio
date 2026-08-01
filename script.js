@@ -452,15 +452,22 @@
 
     sr.reveal(".hero-title",    { origin: "top",   delay: 100 });
     sr.reveal(".hero-lead",     { origin: "top",   delay: 200 });
-    sr.reveal(".hero-portrait", { origin: "right", delay: 300 });
     sr.reveal(".hero-contact",  { origin: "left",  delay: 400 });
     sr.reveal(".hero-actions",  { delay: 500 });
     sr.reveal(".hero-stats",    { delay: 600 });
-    sr.reveal(".about-media",   { origin: "left" });
+    /* every section title, so no section starts flat */
+    sr.reveal(".section-head",  { origin: "top", delay: 100 });
+    sr.reveal(".proj-head",     { origin: "top", delay: 100 });
+
     sr.reveal(".about-body",    { origin: "right" });
+    sr.reveal(".about-meta",    { origin: "left" });
     sr.reveal(".proj-slide",    { interval: 200 });
     sr.reveal(".skill-block",   { interval: 100 });
+    /* logos sweep in a wave rather than a block */
+    sr.reveal(".tech-item",     { interval: 40, distance: "26px", duration: 700 });
     sr.reveal(".cert-card",     { interval: 100 });
+    sr.reveal(".edu-card",      { interval: 150 });
+    sr.reveal(".info-list li",  { origin: "left", interval: 120 });
     sr.reveal(".contact-form",  { origin: "right" });
     sr.reveal(".contact-info",  { origin: "left" });
   }
@@ -496,16 +503,3 @@
   }
 })();
 
-/* Portrait only becomes visible once its file actually loads, so the
-   placeholder path can ship without showing a broken image. */
-(() => {
-  const portrait = document.getElementById("heroPortrait");
-  if (!portrait) return;
-  const img = portrait.querySelector("img");
-  portrait.style.display = "none";
-  if (!img) return;
-  img.addEventListener("load", () => {
-    portrait.style.display = "";
-    portrait.removeAttribute("aria-hidden");
-  });
-})();
