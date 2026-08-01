@@ -698,18 +698,19 @@ p { margin: 0; }
 /* =========================================================
    Skills
    ========================================================= */
+/* Sits inside a .skill-row, so it fills the content column rather than
+   forcing a column count the label gutter would fight with. */
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: var(--sp-6) var(--sp-4);
-  margin-bottom: var(--sp-12);
+  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  gap: var(--sp-2);
 }
 .tech-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--sp-3);
-  padding: var(--sp-5) var(--sp-2);
+  padding: var(--sp-3) var(--sp-2);
   border-radius: var(--r-lg);
   transition: transform var(--t) var(--ease), background-color var(--t) var(--ease);
 }
@@ -1204,7 +1205,6 @@ body.case-modal-open { overflow: hidden; }
 }
 
 @media (max-width: 900px) {
-  .tech-grid { grid-template-columns: repeat(4, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
   .edu-block { padding-top: var(--sp-6); border-top: 1px solid var(--border); }
 
@@ -1647,7 +1647,8 @@ html, body { overflow-anchor: none; }
 }
 
 @media (max-width: 560px) {
-  .tech-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4) var(--sp-2); }
+  /* auto-fill only clears two 94px tracks at this width — pin it to three */
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
   .tech-logo { width: 32px; height: 32px; }
   .jstage-inner { padding: var(--sp-16) var(--sp-5); }
   .os-body { padding: 12px 14px 14px; }
