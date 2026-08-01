@@ -740,47 +740,30 @@ p { margin: 0; }
 /* brands whose stock hex disappears against the dark sheet */
 [data-ui="dark"] .tech-logo { color: var(--brand-dark, var(--brand)); }
 
-.tech-divider {
-  font-size: var(--fs-xs);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--muted-2);
-  margin-bottom: var(--sp-5);
-  padding-bottom: var(--sp-3);
+
+/* Everything without a brand mark — vendors Simple Icons can't ship for
+   trademark reasons, plus frameworks and practices that aren't products. */
+.skill-rows {
+  border-top: 1px solid var(--border);
+}
+.skill-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--sp-6);
+  align-items: start;
+  padding: var(--sp-5) 0;
   border-bottom: 1px solid var(--border);
 }
-
-.skills-matrix {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--sp-4);
-}
-.skill-group {
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: var(--sp-6);
-  background: var(--card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: border-color var(--t) var(--ease), background-color var(--t) var(--ease), transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
-}
-.skill-group:hover {
-  border-color: var(--border-2);
-  background: var(--glass-2);
-  transform: translateY(-2px);
-  box-shadow: var(--sh-2);
-}
-.skill-group-label {
+.skill-row-label {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .08em;
   color: var(--muted);
-  margin-bottom: var(--sp-4);
+  padding-top: 5px;
 }
-.skill-group-label::before {
+.skill-row-label::before {
   content: "▸ ";
   color: var(--accent-2);
 }
@@ -1217,7 +1200,6 @@ body.case-modal-open { overflow: hidden; }
    Responsive
    ========================================================= */
 @media (max-width: 1024px) {
-  .skills-matrix { grid-template-columns: repeat(2, 1fr); }
   .cert-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
@@ -1286,7 +1268,8 @@ body.case-modal-open { overflow: hidden; }
   .hero-stats { gap: var(--sp-6) clamp(28px, 9vw, 48px); }
   .hstat::before { display: none; }
 
-  .skills-matrix { grid-template-columns: 1fr; }
+  .skill-row { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .skill-row-label { padding-top: 0; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .edu-grid { grid-template-columns: 1fr; }
 
