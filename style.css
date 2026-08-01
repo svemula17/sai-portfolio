@@ -446,7 +446,9 @@ p { margin: 0; }
 /* The base colour moves to <html> so <body> can go transparent and let the
    fixed canvas show through every section that doesn't paint its own. */
 html { background: var(--bg); }
-.nav, main, .footer { position: relative; z-index: 1; }
+/* Deliberately not .nav — it's already fixed at z-index 50, and forcing
+   position:relative here broke its slide-in transform. */
+main, .footer { position: relative; z-index: 1; }
 .hero-glow {
   position: absolute;
   inset: 0;
