@@ -251,16 +251,25 @@
         const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
+          /* Web3Forms renders each non-reserved key as a labelled row, in the
+             order given — so the key names below ARE the email's layout, and
+             the order is chosen for scanning on a phone. access_key, subject,
+             from_name, replyto and botcheck are reserved and never rendered. */
           body: JSON.stringify({
             access_key: WEB3FORMS_KEY,
-            name,
-            email,
-            message,
             subject,
             from_name: "Portfolio contact form",
             replyto: email,
-            /* honeypot: real people never see it, bots fill it in */
-            botcheck: (data.get("botcheck") || "").toString()
+            botcheck: (data.get("botcheck") || "").toString(),
+
+            About: chosenSubject || "General enquiry",
+            Name: name,
+            Email: email,
+            Message: message,
+            Received: new Date().toLocaleString("en-US", {
+              dateStyle: "medium", timeStyle: "short"
+            }),
+            Page: location.href
           })
         });
         const out = await res.json();
