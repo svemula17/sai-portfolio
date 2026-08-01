@@ -314,6 +314,14 @@
       outcome: "Reduced SOC alert fatigue with intelligent risk scoring, automated triage, and a real-time analyst dashboard with downloadable incident reports.",
       link: "https://github.com/svemula17/smart-siem-risk-engine"
     },
+    vigil: {
+      title: "VIGIL — Real-Time Threat Detection",
+      problem: "Retail CCTV is recorded, not watched. Incidents are reviewed hours later from footage, and cloud-based video analytics means streaming a shop's entire camera feed to a third party.",
+      built: "A local threat-detection pipeline: webcam frames run through YOLOv8n detection with ByteTrack for stable identities, plus YOLOv8n-pose sampled every Nth frame, feeding an action classifier for fights, weapons, shoplifting and loitering. Alerts fan out over native FastAPI WebSockets to a React dashboard, write evidence (stills and clips) to disk, and optionally send Twilio SMS. Polygon detection zones scope shoplifting and loitering to shelves, exits or checkouts.",
+      tools: "Python, FastAPI, OpenCV, Ultralytics YOLOv8n + YOLOv8n-pose, ByteTrack, SQLite (aiosqlite), React 18, Vite, TailwindCSS, WebSockets, Twilio.",
+      outcome: "Detection at the edge with no video egress — the only outbound call in the whole system is the optional SMS. Evidence is captured automatically at alert time, so an incident is reviewable immediately rather than reconstructed from hours of recording.",
+      link: "https://github.com/svemula17/vigil"
+    },
     pentest: {
       title: "AI Pen-Test Agent",
       problem: "Manual penetration testing is slow, inconsistent, and requires an expert who knows dozens of specialized tools and when to use each one.",

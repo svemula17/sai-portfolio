@@ -30,7 +30,7 @@
   <!-- Swiper — recommendations carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="style.css?v=79" />
+  <link rel="stylesheet" href="style.css?v=80" />
 </head>
 
 <body>
@@ -306,7 +306,7 @@
 
 
     <section id="projects" class="projects">
-      <div class="proj-scroller" data-slide-count="4">
+      <div class="proj-scroller" data-slide-count="5">
         <div class="proj-stage">
           <div class="container proj-stage-inner">
             <div class="proj-head">
@@ -393,6 +393,24 @@
             <div class="proj-progress" aria-hidden="true">
               <span class="proj-num mono">01 / 04</span>
               <div class="proj-bar"><span></span></div>
+            <article class="proj-slide" data-case-key="vigil">
+              <div class="proj-text">
+                <p class="eyebrow">Computer Vision / Detection</p>
+                <h3>VIGIL — Real-Time Threat Detection</h3>
+                <p>Real-time CCTV threat detection for retail. YOLOv8n detection with ByteTrack identity tracking and pose estimation classify fights, weapons, shoplifting and loitering from a live camera feed, streaming alerts to a dashboard over WebSockets and optional SMS. Every frame is processed on-device — no video ever leaves the machine, with the Twilio alert the only outbound call in the system.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>FastAPI</li><li>YOLOv8</li><li>ByteTrack</li><li>OpenCV</li><li>React</li><li>WebSockets</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="vigil">Case study →</button>
+                  <a class="link-btn" href="https://github.com/svemula17/vigil" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual">
+                <img src="assets/img/projects/vigil.webp" alt="VIGIL dashboard showing live detection zones, tracked people and an alert history table" loading="lazy">
+              </div>
+            </article>
+
             </div>
           </div>
         </div>
@@ -823,7 +841,7 @@
   <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <!-- Swiper — recommendations carousel -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js?v=34"></script>
+  <script src="script.js?v=35"></script>
   <script src="animations.js?v=3"></script>
   <script defer src="contrib-bg.js?v=4"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
