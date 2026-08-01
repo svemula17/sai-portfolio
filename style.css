@@ -1176,17 +1176,6 @@ main, .footer { position: relative; z-index: 1; }
 .contact-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-5); }
 .contact-resume { width: 100%; justify-content: center; margin-top: auto; }
 
-/* blinking caret while journey.js types the window path */
-.os-title.is-typing::after {
-  content: "\u2588";
-  margin-left: 1px;
-  animation: os-caret .7s steps(1) infinite;
-}
-@keyframes os-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) {
-  .os-title.is-typing::after { animation: none; opacity: 0; }
-}
-
 /* =========================================================
    Footer
    ========================================================= */
