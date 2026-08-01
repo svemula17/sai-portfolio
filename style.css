@@ -1478,14 +1478,14 @@ html, body { overflow-anchor: none; }
 .journey.is-cinematic .laptop-screen { aspect-ratio: 16 / 10.8; }
 .laptop-screen-glow {
   position: absolute; inset: 0;
-  background: radial-gradient(120% 78% at 50% 0%, rgba(52,211,153,.14), transparent 58%);
+  background: radial-gradient(120% 78% at 50% 0%, rgba(168,85,247,.14), transparent 58%);
   pointer-events: none;
 }
-/* desktop wallpaper — emerald aurora on deep navy */
+/* desktop wallpaper — purple aurora on deep navy */
 .os-wallpaper {
   position: absolute; inset: 0;
   background:
-    radial-gradient(90% 80% at 18% 88%, rgba(52,211,153,.20), transparent 55%),
+    radial-gradient(90% 80% at 18% 88%, rgba(168,85,247,.20), transparent 55%),
     radial-gradient(70% 65% at 85% 12%, rgba(56,189,248,.14), transparent 60%),
     radial-gradient(50% 45% at 62% 75%, rgba(99,44,166,.16), transparent 62%),
     linear-gradient(160deg, #0d1420, #0a0f18 55%, #0b111c);
@@ -1647,7 +1647,7 @@ html, body { overflow-anchor: none; }
 .os-dots i { width: 10px; height: 10px; border-radius: 50%; }
 .os-dots i:nth-child(1) { background: #e5657b; }
 .os-dots i:nth-child(2) { background: #e3b341; }
-.os-dots i:nth-child(3) { background: #34d399; }
+.os-dots i:nth-child(3) { background: #a855f7; }
 .os-title { font-family: var(--font-mono); font-size: 11px; color: #8b95a5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .os-body { padding: 12px 18px 12px; text-align: left; }
@@ -1657,10 +1657,10 @@ html, body { overflow-anchor: none; }
 .os-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 10px; }
 .os-chip {
   padding: 4px 10px; border-radius: 7px;
-  background: rgba(52,211,153,.09); border: 1px solid rgba(52,211,153,.22);
+  background: rgba(168,85,247,.09); border: 1px solid rgba(168,85,247,.22);
   font-family: var(--font-mono); font-size: 11px; color: #aeb7c4; white-space: nowrap;
 }
-.os-chip b { color: #7ef0c0; font-weight: 500; }
+.os-chip b { color: #d3b4fd; font-weight: 500; }
 
 /* ── Journey micro-interactions ──────────────────────────────────────
    journey.js drives the scroll timeline, dock fisheye and cursor tilt;
@@ -1668,7 +1668,7 @@ html, body { overflow-anchor: none; }
 .os-dots i { transition: transform 160ms var(--ease), box-shadow 160ms var(--ease); }
 .os-titlebar:hover .os-dots i:nth-child(1) { box-shadow: 0 0 10px #e5657b; transform: scale(1.15); }
 .os-titlebar:hover .os-dots i:nth-child(2) { box-shadow: 0 0 10px #e3b341; transform: scale(1.15); }
-.os-titlebar:hover .os-dots i:nth-child(3) { box-shadow: 0 0 10px #34d399; transform: scale(1.15); }
+.os-titlebar:hover .os-dots i:nth-child(3) { box-shadow: 0 0 10px #a855f7; transform: scale(1.15); }
 
 .os-chip {
   transition: transform 200ms var(--ease), border-color 200ms var(--ease), background-color 200ms var(--ease);
@@ -1695,7 +1695,7 @@ html, body { overflow-anchor: none; }
   position: relative; padding: 3px 0 3px 17px;
   color: #9aa3b2; font-size: 12px; line-height: 1.5;
 }
-.os-points li::before { content: "▸"; position: absolute; left: 0; color: #34d399; } /* screen keeps its own emerald accent */
+.os-points li::before { content: "▸"; position: absolute; left: 0; color: #a855f7; } /* screen accent matches the site */
 
 /* dock + timeline progress — cinematic only */
 .os-dockwrap { display: none; }
@@ -1750,7 +1750,7 @@ html, body { overflow-anchor: none; }
 .dock-progress-fill {
   display: block; height: 100%; width: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, #34d399, #7ef0c0);
+  background: linear-gradient(90deg, #a855f7, #d3b4fd);
   transform: scaleX(0);
   transform-origin: 0 50%;
 }
