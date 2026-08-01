@@ -1139,6 +1139,18 @@ main, .footer { position: relative; z-index: 1; }
 }
 .contact-submit { width: 100%; justify-content: center; margin-top: var(--sp-2); }
 .form-note { margin-top: var(--sp-3); min-height: 1.2em; }
+.form-note.is-ok  { color: var(--accent-2); }
+.form-note.is-err { color: #d9534f; }
+[data-ui="dark"] .form-note.is-err { color: #ff8a80; }
+/* honeypot — removed from layout and a11y tree, not display:none, which some
+   bots detect and skip */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
 
 /* ----- details ----- */
 .info-list { display: grid; gap: var(--sp-5); margin-bottom: var(--sp-8); }

@@ -206,7 +206,28 @@
       });
     });
 
-    contactForm.addEventListener("submit", (e) => {
+    /* Paste the Web3Forms access key here (web3forms.com — enter your email,
+       the key arrives by mail). It is designed to be public, so it is safe in
+       client-side source. While it is blank the form falls back to mailto, so
+       the page keeps working either way. */
+    const WEB3FORMS_KEY = "";
+    const TO_EMAIL = "svemula127@gmail.com";
+
+    const setNote = (text, state) => {
+      if (!note) return;
+      note.textContent = text;
+      note.classList.remove("is-ok", "is-err");
+      if (state) note.classList.add(state);
+    };
+
+    function sendViaMailto(subject, body) {
+      window.location.href =
+        `mailto:${TO_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setNote("Opening your email app…");
+      setTimeout(() => setNote(""), 4000);
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!contactForm.reportValidity()) return;
 
@@ -214,15 +235,51 @@
       const name = (data.get("name") || "").toString().trim();
       const email = (data.get("email") || "").toString().trim();
       const message = (data.get("message") || "").toString().trim();
-
       const subject = chosenSubject ? `${chosenSubject} — ${name}` : `Portfolio enquiry — ${name}`;
-      const body = `${message}\n\n—\n${name}\n${email}`;
-      const href = `mailto:svemula127@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      window.location.href = href;
-      if (note) {
-        note.textContent = "Opening your email app…";
-        setTimeout(() => { note.textContent = ""; }, 4000);
+      if (!WEB3FORMS_KEY) {
+        sendViaMailto(subject, `${message}\n\n—\n${name}\n${email}`);
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+      setNote("Sending…");
+
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            name,
+            email,
+            message,
+            subject,
+            from_name: "Portfolio contact form",
+            replyto: email,
+            /* honeypot: real people never see it, bots fill it in */
+            botcheck: (data.get("botcheck") || "").toString()
+          })
+        });
+        const out = await res.json();
+
+        if (out.success) {
+          contactForm.reset();
+          chosenSubject = "";
+          contactForm.querySelectorAll(".prompt-chip")
+            .forEach(c => c.classList.remove("is-active"));
+          setNote("Thanks — your message is on its way. I'll reply soon.", "is-ok");
+        } else {
+          throw new Error(out.message || "Submission rejected");
+        }
+      } catch (err) {
+        /* network down, key wrong, quota hit — never strand the visitor */
+        setNote("Couldn't send from here — opening your email app instead…", "is-err");
+        setTimeout(() => sendViaMailto(subject, `${message}\n\n—\n${name}\n${email}`), 1200);
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
       }
     });
   }
