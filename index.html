@@ -27,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=56" />
+  <link rel="stylesheet" href="style.css?v=60" />
 </head>
 
 <body>
@@ -42,8 +42,8 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#journey">Experience</a>
-        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -102,6 +102,57 @@
     </section>
 
     <!-- ===== Cinematic scroll journey — laptop OS experience switcher ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">About</p>
+          <h2>Security engineer who embeds security into every stage of the SDLC.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-body reveal">
+            <p>
+              DevSecOps engineer with 4+ years of experience spanning secure CI/CD, AWS cloud
+              security, and SOC operations. I build pipelines with SAST/DAST/SCA gates, codify
+              infrastructure security with Terraform and policy-as-code, harden Kubernetes
+              workloads, and automate cloud posture management across multi-account AWS environments.
+            </p>
+            <p>
+              My career runs from a 24×7 SOC (Splunk, QRadar, incident response) through AWS
+              security engineering to DevSecOps at scale — always focused on measurable outcomes:
+              fewer vulnerabilities reaching production, faster remediation, and audit-ready
+              compliance. Currently completing an M.S. in Cybersecurity at Yeshiva University.
+            </p>
+
+            <dl class="about-meta">
+              <div><dt>Focus</dt><dd>DevSecOps, CI/CD &amp; cloud security</dd></div>
+              <div><dt>Stack</dt><dd>AWS, Kubernetes, Terraform, Jenkins, Python</dd></div>
+              <div><dt>Methods</dt><dd>STRIDE, MITRE ATT&amp;CK, CIS Benchmarks</dd></div>
+              <div><dt>Open to</dt><dd>DevSecOps · Cloud Security · Security Engineering</dd></div>
+            </dl>
+          </div>
+
+          <aside class="edu-block reveal">
+            <p class="eyebrow edu-label">Education</p>
+            <div class="edu-grid">
+              <article class="edu-card">
+                <p class="eyebrow">Graduate</p>
+                <h3>M.S. Cybersecurity</h3>
+                <p class="muted">Yeshiva University, New York City</p>
+                <p class="mono small">2024 – 2026 · CGPA 3.9</p>
+              </article>
+              <article class="edu-card">
+                <p class="eyebrow">Undergraduate</p>
+                <h3>Bachelor of Technology</h3>
+                <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
+                <p class="mono small">2018 – 2021 · CGPA 3.9</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
     <section id="journey" class="journey" aria-label="Experience — interactive walkthrough">
       <div class="journey-stage">
         <div class="jstage-inner">
@@ -247,58 +298,101 @@
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">About</p>
-          <h2>Security engineer who embeds security into every stage of the SDLC.</h2>
-        </div>
 
-        <div class="about-grid">
-          <div class="about-body reveal">
-            <p>
-              DevSecOps engineer with 4+ years of experience spanning secure CI/CD, AWS cloud
-              security, and SOC operations. I build pipelines with SAST/DAST/SCA gates, codify
-              infrastructure security with Terraform and policy-as-code, harden Kubernetes
-              workloads, and automate cloud posture management across multi-account AWS environments.
-            </p>
-            <p>
-              My career runs from a 24×7 SOC (Splunk, QRadar, incident response) through AWS
-              security engineering to DevSecOps at scale — always focused on measurable outcomes:
-              fewer vulnerabilities reaching production, faster remediation, and audit-ready
-              compliance. Currently completing an M.S. in Cybersecurity at Yeshiva University.
-            </p>
 
-            <dl class="about-meta">
-              <div><dt>Focus</dt><dd>DevSecOps, CI/CD &amp; cloud security</dd></div>
-              <div><dt>Stack</dt><dd>AWS, Kubernetes, Terraform, Jenkins, Python</dd></div>
-              <div><dt>Methods</dt><dd>STRIDE, MITRE ATT&amp;CK, CIS Benchmarks</dd></div>
-              <div><dt>Open to</dt><dd>DevSecOps · Cloud Security · Security Engineering</dd></div>
-            </dl>
-          </div>
-
-          <aside class="edu-block reveal">
-            <p class="eyebrow edu-label">Education</p>
-            <div class="edu-grid">
-              <article class="edu-card">
-                <p class="eyebrow">Graduate</p>
-                <h3>M.S. Cybersecurity</h3>
-                <p class="muted">Yeshiva University, New York City</p>
-                <p class="mono small">2024 – 2026 · CGPA 3.9</p>
-              </article>
-              <article class="edu-card">
-                <p class="eyebrow">Undergraduate</p>
-                <h3>Bachelor of Technology</h3>
-                <p class="muted">CMR College of Engineering &amp; Technology, Hyderabad</p>
-                <p class="mono small">2018 – 2021 · CGPA 3.9</p>
-              </article>
+    <section id="projects" class="projects">
+      <div class="proj-scroller" data-slide-count="4">
+        <div class="proj-stage">
+          <div class="container proj-stage-inner">
+            <div class="proj-head">
+              <p class="eyebrow">Projects</p>
+              <h2>Selected security projects.</h2>
             </div>
-          </aside>
-        </div>
 
+            <div class="proj-slides">
+
+            <article class="proj-slide is-active" data-case-key="siem">
+              <div class="proj-text">
+                <p class="eyebrow">SIEM / SOAR</p>
+                <h3>Smart SIEM Risk Engine</h3>
+                <p>Automated SIEM solution for security monitoring, log analysis, and threat detection that reduces SOC alert fatigue. Features a machine learning-based risk scoring engine (Random Forest) for threat classification and alert prioritization, with real-time dashboards, GeoIP visualization, and incident response automation.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="siem">Case study →</button>
+                  <a class="link-btn" href="https://github.com/svemula17/smart-siem-risk-engine" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual">
+                <img src="assets/img/projects/smart-risk-engine.png" alt="Smart SIEM Risk Engine dashboard" loading="lazy">
+              </div>
+            </article>
+
+            <article class="proj-slide" data-case-key="pentest">
+              <div class="proj-text">
+                <p class="eyebrow">Offensive AI</p>
+                <h3>AI Pen-Test Agent</h3>
+                <p>An autonomous penetration testing agent that decides which hacking tools to run, reads their output, figures out the next move, and writes a professional security report. Supports Claude, Gemini, or a built-in deterministic planner. Enforces hard safety rails — locked to DVWA lab targets only, with 17 integrated tools including nmap, gobuster, sqlmap, and Metasploit parsers.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>Claude API</li><li>nmap</li><li>sqlmap</li><li>Burp Suite</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="pentest">Case study →</button>
+                  <a class="link-btn" href="https://github.com/svemula17/pentest-agent" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual">
+                <img src="assets/img/projects/pentest-agent.png" alt="AI pen-test agent screenshot" loading="lazy">
+              </div>
+            </article>
+
+            <article class="proj-slide" data-case-key="cloud">
+              <div class="proj-text">
+                <p class="eyebrow">Cloud Security</p>
+                <h3>Cloud Security &amp; Deception Platform</h3>
+                <p>AI-driven cloud security platform for CSPM, detecting misconfigurations across AWS services (IAM, S3, EC2). Performs cloud risk assessment and threat modeling mapped to MITRE ATT&amp;CK and CIS Benchmarks. Implements deception technology (honeypots) and real-time alerting to improve threat detection, incident response, and MTTD/MTTR.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>AWS</li><li>TensorFlow</li><li>Scikit-learn</li><li>Terraform</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="cloud">Case study →</button>
+                  <a class="link-btn" href="https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual">
+                <img src="assets/img/projects/cloud-posture.png" alt="Cloud posture platform screenshot" loading="lazy">
+              </div>
+            </article>
+
+            <article class="proj-slide" data-case-key="attackid">
+              <div class="proj-text">
+                <p class="eyebrow">Detection Engineering</p>
+                <h3>Attack Identification Tool</h3>
+                <p>A SIEM pipeline that ingests raw IDS/IPS logs (Suricata, Zeek), normalizes them through strict Pydantic validation, applies heuristic risk scoring (0–100) across severity, exploitability, and target dimensions, and triggers automated playbook responses — blocking critical IPs, flagging medium threats, and archiving low-risk events. Streams results to a real-time glassmorphism dashboard via WebSockets.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>FastAPI</li><li>SQLite</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="attackid">Case study →</button>
+                  <a class="link-btn" href="https://github.com/svemula17/attack_identification_tool" target="_blank" rel="noreferrer">GitHub →</a>
+                </div>
+              </div>
+              <div class="proj-visual proj-visual--art">
+                <img src="assets/img/projects/aws-securecloud.svg" alt="Attack Identification Tool architecture" loading="lazy">
+              </div>
+            </article>
+
+            </div><!-- /.proj-slides -->
+
+            <div class="proj-progress" aria-hidden="true">
+              <span class="proj-num mono">01 / 04</span>
+              <div class="proj-bar"><span></span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
 
     <section id="skills" class="section section--fit">
       <div class="container">
@@ -469,319 +563,229 @@
       </div>
     </section>
 
-    <section id="projects" class="projects">
-      <div class="proj-scroller" data-slide-count="4">
-        <div class="proj-stage">
-          <div class="container proj-stage-inner">
-            <div class="proj-head">
-              <p class="eyebrow">Projects</p>
-              <h2>Selected security projects.</h2>
-            </div>
+    <!-- sticky scope: certifications pins only within this pair, so it
+         cannot hang at the viewport floor during Skills -->
+    <div class="stack-reveal">
+      <section id="certifications" class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Certifications</p>
+            <h2>Hands-on security, cloud, Linux, and automation credentials.</h2>
+          </div>
 
-            <div class="proj-slides">
+          <div class="cert-grid">
+            <a class="cert-card reveal" href="assets/img/certs/comptia.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/comptia.jpg" alt="CompTIA Security+ certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">CompTIA</p>
+                <h3>Security+</h3>
+              </div>
+            </a>
+            <a class="cert-card reveal" href="assets/img/certs/google-cybersecurity.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/google-cybersecurity.jpg" alt="Google Cybersecurity Professional certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Cybersecurity Professional</h3>
+              </div>
+            </a>
+            <a class="cert-card reveal" href="assets/img/certs/soc.png" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/soc.png" alt="SOC Experts Hands-on SOC Lab Program certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">SOC Experts</p>
+                <h3>Hands-on SOC Lab Program</h3>
+              </div>
+            </a>
+            <a class="cert-card reveal" href="assets/img/certs/redhat.png" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/redhat.png" alt="Red Hat System Administration I RH124 certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Red Hat</p>
+                <h3>System Administration I (RH124)</h3>
+              </div>
+            </a>
+          </div>
 
-            <article class="proj-slide is-active" data-case-key="siem">
-              <div class="proj-text">
-                <p class="eyebrow">SIEM / SOAR</p>
-                <h3>Smart SIEM Risk Engine</h3>
-                <p>Automated SIEM solution for security monitoring, log analysis, and threat detection that reduces SOC alert fatigue. Features a machine learning-based risk scoring engine (Random Forest) for threat classification and alert prioritization, with real-time dashboards, GeoIP visualization, and incident response automation.</p>
-                <ul class="proj-tags">
-                  <li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
-                </ul>
-                <div class="proj-cta">
-                  <button class="link-btn" type="button" data-case="siem">Case study →</button>
-                  <a class="link-btn" href="https://github.com/svemula17/smart-siem-risk-engine" target="_blank" rel="noreferrer">GitHub →</a>
-                </div>
-              </div>
-              <div class="proj-visual">
-                <img src="assets/img/projects/smart-risk-engine.png" alt="Smart SIEM Risk Engine dashboard" loading="lazy">
-              </div>
-            </article>
+          <button id="certToggle" class="cert-toggle" type="button" aria-expanded="false" aria-controls="certMore">View all certifications →</button>
 
-            <article class="proj-slide" data-case-key="pentest">
-              <div class="proj-text">
-                <p class="eyebrow">Offensive AI</p>
-                <h3>AI Pen-Test Agent</h3>
-                <p>An autonomous penetration testing agent that decides which hacking tools to run, reads their output, figures out the next move, and writes a professional security report. Supports Claude, Gemini, or a built-in deterministic planner. Enforces hard safety rails — locked to DVWA lab targets only, with 17 integrated tools including nmap, gobuster, sqlmap, and Metasploit parsers.</p>
-                <ul class="proj-tags">
-                  <li>Python</li><li>Claude API</li><li>nmap</li><li>sqlmap</li><li>Burp Suite</li>
-                </ul>
-                <div class="proj-cta">
-                  <button class="link-btn" type="button" data-case="pentest">Case study →</button>
-                  <a class="link-btn" href="https://github.com/svemula17/pentest-agent" target="_blank" rel="noreferrer">GitHub →</a>
-                </div>
+          <div id="certMore" class="cert-grid cert-grid-more" hidden>
+            <a class="cert-card" href="assets/img/certs/isc2.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/isc2.jpg" alt="(ISC)² Certified in Cybersecurity certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">(ISC)² · Coursera</p>
+                <h3>Certified in Cybersecurity</h3>
               </div>
-              <div class="proj-visual">
-                <img src="assets/img/projects/pentest-agent.png" alt="AI pen-test agent screenshot" loading="lazy">
+            </a>
+            <a class="cert-card" href="assets/img/certs/automate.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/automate.jpg" alt="Google Automate Cybersecurity Tasks with Python certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Automate Cybersecurity Tasks with Python</h3>
               </div>
-            </article>
-
-            <article class="proj-slide" data-case-key="cloud">
-              <div class="proj-text">
-                <p class="eyebrow">Cloud Security</p>
-                <h3>Cloud Security &amp; Deception Platform</h3>
-                <p>AI-driven cloud security platform for CSPM, detecting misconfigurations across AWS services (IAM, S3, EC2). Performs cloud risk assessment and threat modeling mapped to MITRE ATT&amp;CK and CIS Benchmarks. Implements deception technology (honeypots) and real-time alerting to improve threat detection, incident response, and MTTD/MTTR.</p>
-                <ul class="proj-tags">
-                  <li>Python</li><li>AWS</li><li>TensorFlow</li><li>Scikit-learn</li><li>Terraform</li>
-                </ul>
-                <div class="proj-cta">
-                  <button class="link-btn" type="button" data-case="cloud">Case study →</button>
-                  <a class="link-btn" href="https://github.com/saivarmadpr/Cloud_Security_Posture_-_Deception_Platform" target="_blank" rel="noreferrer">GitHub →</a>
-                </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/foundations.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/foundations.jpg" alt="Google Foundations of Cybersecurity certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Foundations of Cybersecurity</h3>
               </div>
-              <div class="proj-visual">
-                <img src="assets/img/projects/cloud-posture.png" alt="Cloud posture platform screenshot" loading="lazy">
+            </a>
+            <a class="cert-card" href="assets/img/certs/play-it-safe.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/play-it-safe.jpg" alt="Google Play It Safe Manage Security Risks certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Play It Safe: Manage Security Risks</h3>
               </div>
-            </article>
-
-            <article class="proj-slide" data-case-key="attackid">
-              <div class="proj-text">
-                <p class="eyebrow">Detection Engineering</p>
-                <h3>Attack Identification Tool</h3>
-                <p>A SIEM pipeline that ingests raw IDS/IPS logs (Suricata, Zeek), normalizes them through strict Pydantic validation, applies heuristic risk scoring (0–100) across severity, exploitability, and target dimensions, and triggers automated playbook responses — blocking critical IPs, flagging medium threats, and archiving low-risk events. Streams results to a real-time glassmorphism dashboard via WebSockets.</p>
-                <ul class="proj-tags">
-                  <li>Python</li><li>FastAPI</li><li>SQLite</li><li>WebSockets</li><li>MITRE ATT&amp;CK</li>
-                </ul>
-                <div class="proj-cta">
-                  <button class="link-btn" type="button" data-case="attackid">Case study →</button>
-                  <a class="link-btn" href="https://github.com/svemula17/attack_identification_tool" target="_blank" rel="noreferrer">GitHub →</a>
-                </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/connect.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/connect.jpg" alt="Google Connect and Protect Networks certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Connect and Protect Networks</h3>
               </div>
-              <div class="proj-visual proj-visual--art">
-                <img src="assets/img/projects/aws-securecloud.svg" alt="Attack Identification Tool architecture" loading="lazy">
+            </a>
+            <a class="cert-card" href="assets/img/certs/tools.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/tools.jpg" alt="Google Tools of the Trade Linux and SQL certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Tools of the Trade: Linux &amp; SQL</h3>
               </div>
-            </article>
-
-            </div><!-- /.proj-slides -->
-
-            <div class="proj-progress" aria-hidden="true">
-              <span class="proj-num mono">01 / 04</span>
-              <div class="proj-bar"><span></span></div>
-            </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/assets.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/assets.jpg" alt="Google Assets, Threats and Vulnerabilities certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Assets, Threats &amp; Vulnerabilities</h3>
+              </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/sound.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/sound.jpg" alt="Google Sound the Alarm Detection and Response certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Sound the Alarm: Detection &amp; Response</h3>
+              </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/incident.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/incident.jpg" alt="Google Incident Response certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Incident Response, BC &amp; DR Concepts</h3>
+              </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/access.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/access.jpg" alt="Google Access Control Concepts certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Access Control Concepts</h3>
+              </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/security.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/security.jpg" alt="Google Security Operations certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Security Operations</h3>
+              </div>
+            </a>
+            <a class="cert-card" href="assets/img/certs/put.jpg" target="_blank" rel="noreferrer">
+              <img src="assets/img/certs/put.jpg" alt="Google Put It to Work Prepare for Jobs certificate" loading="lazy">
+              <div class="cert-meta">
+                <p class="eyebrow">Google</p>
+                <h3>Put It to Work: Prepare for Jobs</h3>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="certifications" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Certifications</p>
-          <h2>Hands-on security, cloud, Linux, and automation credentials.</h2>
-        </div>
+      <section id="contact" class="section contact">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Contact</p>
+            <h2>Let's talk.</h2>
+          </div>
 
-        <div class="cert-grid">
-          <a class="cert-card reveal" href="assets/img/certs/comptia.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/comptia.jpg" alt="CompTIA Security+ certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">CompTIA</p>
-              <h3>Security+</h3>
-            </div>
-          </a>
-          <a class="cert-card reveal" href="assets/img/certs/google-cybersecurity.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/google-cybersecurity.jpg" alt="Google Cybersecurity Professional certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Cybersecurity Professional</h3>
-            </div>
-          </a>
-          <a class="cert-card reveal" href="assets/img/certs/soc.png" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/soc.png" alt="SOC Experts Hands-on SOC Lab Program certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">SOC Experts</p>
-              <h3>Hands-on SOC Lab Program</h3>
-            </div>
-          </a>
-          <a class="cert-card reveal" href="assets/img/certs/redhat.png" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/redhat.png" alt="Red Hat System Administration I RH124 certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Red Hat</p>
-              <h3>System Administration I (RH124)</h3>
-            </div>
-          </a>
-        </div>
+          <div class="contact-grid">
+            <!-- form posts nowhere: GitHub Pages is static, so submit composes a
+                 prefilled email instead. Swap the handler for a Formspree endpoint
+                 if a real inbox is ever wanted. -->
+            <form class="contact-card contact-form reveal" id="contactForm" novalidate>
+              <h3>Send a message</h3>
 
-        <button id="certToggle" class="cert-toggle" type="button" aria-expanded="false" aria-controls="certMore">View all certifications →</button>
+              <label class="field">
+                <span class="field-label">Name</span>
+                <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
+              </label>
 
-        <div id="certMore" class="cert-grid cert-grid-more" hidden>
-          <a class="cert-card" href="assets/img/certs/isc2.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/isc2.jpg" alt="(ISC)² Certified in Cybersecurity certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">(ISC)² · Coursera</p>
-              <h3>Certified in Cybersecurity</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/automate.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/automate.jpg" alt="Google Automate Cybersecurity Tasks with Python certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Automate Cybersecurity Tasks with Python</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/foundations.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/foundations.jpg" alt="Google Foundations of Cybersecurity certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Foundations of Cybersecurity</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/play-it-safe.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/play-it-safe.jpg" alt="Google Play It Safe Manage Security Risks certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Play It Safe: Manage Security Risks</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/connect.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/connect.jpg" alt="Google Connect and Protect Networks certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Connect and Protect Networks</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/tools.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/tools.jpg" alt="Google Tools of the Trade Linux and SQL certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Tools of the Trade: Linux &amp; SQL</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/assets.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/assets.jpg" alt="Google Assets, Threats and Vulnerabilities certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Assets, Threats &amp; Vulnerabilities</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/sound.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/sound.jpg" alt="Google Sound the Alarm Detection and Response certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Sound the Alarm: Detection &amp; Response</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/incident.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/incident.jpg" alt="Google Incident Response certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Incident Response, BC &amp; DR Concepts</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/access.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/access.jpg" alt="Google Access Control Concepts certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Access Control Concepts</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/security.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/security.jpg" alt="Google Security Operations certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Security Operations</h3>
-            </div>
-          </a>
-          <a class="cert-card" href="assets/img/certs/put.jpg" target="_blank" rel="noreferrer">
-            <img src="assets/img/certs/put.jpg" alt="Google Put It to Work Prepare for Jobs certificate" loading="lazy">
-            <div class="cert-meta">
-              <p class="eyebrow">Google</p>
-              <h3>Put It to Work: Prepare for Jobs</h3>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+              <label class="field">
+                <span class="field-label">Email</span>
+                <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              </label>
 
-    <section id="contact" class="section contact">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>Let's talk.</h2>
-        </div>
-
-        <div class="contact-grid">
-          <!-- form posts nowhere: GitHub Pages is static, so submit composes a
-               prefilled email instead. Swap the handler for a Formspree endpoint
-               if a real inbox is ever wanted. -->
-          <form class="contact-card contact-form reveal" id="contactForm" novalidate>
-            <h3>Send a message</h3>
-
-            <label class="field">
-              <span class="field-label">Name</span>
-              <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
-            </label>
-
-            <label class="field">
-              <span class="field-label">Email</span>
-              <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required />
-            </label>
-
-            <div class="field">
-              <label class="field-label" for="contactMessage">Message</label>
-              <div class="prompt-chips" role="group" aria-label="Start from a template">
-                <button type="button" class="prompt-chip" data-subject="Role opportunity"
-                  data-prompt="Hi Sai — we're hiring a DevSecOps / Cloud Security Engineer and your AWS and CI/CD background looks like a strong match. About the role: ">Hiring for a role</button>
-                <button type="button" class="prompt-chip" data-subject="Interview request"
-                  data-prompt="Hi Sai — we'd like to set up an intro call about an opening on our security team. Are you available this week? ">Interview request</button>
-                <button type="button" class="prompt-chip" data-subject="Contract engagement"
-                  data-prompt="Hi Sai — we have a short-term security engagement (cloud hardening, pipeline security) and could use your help. Scope and timeline: ">Contract work</button>
-                <button type="button" class="prompt-chip" data-subject="Referral / intro"
-                  data-prompt="Hi Sai — I came across your portfolio and wanted to connect. I think you'd be a fit for a role in my network: ">Referral or intro</button>
+              <div class="field">
+                <label class="field-label" for="contactMessage">Message</label>
+                <div class="prompt-chips" role="group" aria-label="Start from a template">
+                  <button type="button" class="prompt-chip" data-subject="Role opportunity"
+                    data-prompt="Hi Sai — we're hiring a DevSecOps / Cloud Security Engineer and your AWS and CI/CD background looks like a strong match. About the role: ">Hiring for a role</button>
+                  <button type="button" class="prompt-chip" data-subject="Interview request"
+                    data-prompt="Hi Sai — we'd like to set up an intro call about an opening on our security team. Are you available this week? ">Interview request</button>
+                  <button type="button" class="prompt-chip" data-subject="Contract engagement"
+                    data-prompt="Hi Sai — we have a short-term security engagement (cloud hardening, pipeline security) and could use your help. Scope and timeline: ">Contract work</button>
+                  <button type="button" class="prompt-chip" data-subject="Referral / intro"
+                    data-prompt="Hi Sai — I came across your portfolio and wanted to connect. I think you'd be a fit for a role in my network: ">Referral or intro</button>
+                </div>
+                <textarea id="contactMessage" name="message" rows="5" placeholder="Pick a starter above, or write your own." required></textarea>
               </div>
-              <textarea id="contactMessage" name="message" rows="5" placeholder="Pick a starter above, or write your own." required></textarea>
-            </div>
 
-            <!-- honeypot: hidden from people, bots fill it and get rejected -->
-            <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <!-- honeypot: hidden from people, bots fill it and get rejected -->
+              <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-            <button type="submit" class="btn-pill contact-submit">Send message</button>
-            <p class="form-note mono small muted" id="formNote" role="status" aria-live="polite"></p>
-          </form>
+              <button type="submit" class="btn-pill contact-submit">Send message</button>
+              <p class="form-note mono small muted" id="formNote" role="status" aria-live="polite"></p>
+            </form>
 
-          <aside class="contact-card contact-info reveal">
-            <h3>Contact information</h3>
+            <aside class="contact-card contact-info reveal">
+              <h3>Contact information</h3>
 
-            <ul class="info-list">
-              <li>
-                <span class="info-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-                </span>
-                <span class="info-body">
-                  <span class="info-label">Email</span>
-                  <a href="mailto:svemula127@gmail.com">svemula127@gmail.com</a>
-                </span>
-              </li>
-              <li>
-                <span class="info-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </span>
-                <span class="info-body">
-                  <span class="info-label">Location</span>
-                  <span>New Jersey, USA</span>
-                </span>
-              </li>
-              <li>
-                <span class="info-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                </span>
-                <span class="info-body">
-                  <span class="info-label">Availability</span>
-                  <span>Open to DevSecOps &amp; cloud security roles</span>
-                </span>
-              </li>
-            </ul>
+              <ul class="info-list">
+                <li>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                  </span>
+                  <span class="info-body">
+                    <span class="info-label">Email</span>
+                    <a href="mailto:svemula127@gmail.com">svemula127@gmail.com</a>
+                  </span>
+                </li>
+                <li>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </span>
+                  <span class="info-body">
+                    <span class="info-label">Location</span>
+                    <span>New Jersey, USA</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </span>
+                  <span class="info-body">
+                    <span class="info-label">Availability</span>
+                    <span>Open to DevSecOps &amp; cloud security roles</span>
+                  </span>
+                </li>
+              </ul>
 
-            <h3 class="find-me">Find me</h3>
-            <div class="contact-links">
-              <a class="btn-ghost" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="btn-ghost" href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <button class="btn-ghost copy-btn" data-copy="svemula127@gmail.com">Copy email</button>
-            </div>
-            <a class="btn-pill contact-resume" href="assets/docs/Sai_Kumar_Vemula_DevSecOps_Resume.pdf" download>Download resume</a>
-          </aside>
+              <h3 class="find-me">Find me</h3>
+              <div class="contact-links">
+                <a class="btn-ghost" href="https://github.com/svemula17" target="_blank" rel="noreferrer">GitHub</a>
+                <a class="btn-ghost" href="https://www.linkedin.com/in/sai-kumar-vemula1/" target="_blank" rel="noreferrer">LinkedIn</a>
+                <button class="btn-ghost copy-btn" data-copy="svemula127@gmail.com">Copy email</button>
+              </div>
+              <a class="btn-pill contact-resume" href="assets/docs/Sai_Kumar_Vemula_DevSecOps_Resume.pdf" download>Download resume</a>
+            </aside>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -816,6 +820,6 @@
   <script defer src="contrib-bg.js?v=3"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script defer src="journey.js?v=11"></script>
+  <script defer src="journey.js?v=12"></script>
 </body>
 </html>

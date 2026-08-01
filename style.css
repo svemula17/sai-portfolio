@@ -1176,6 +1176,52 @@ main, .footer { position: relative; z-index: 1; }
 .contact-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-5); }
 .contact-resume { width: 100%; justify-content: center; margin-top: auto; }
 
+/* blinking caret while journey.js types the window path */
+.os-title.is-typing::after {
+  content: "\u2588";
+  margin-left: 1px;
+  animation: os-caret .7s steps(1) infinite;
+}
+@keyframes os-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .os-title.is-typing::after { animation: none; opacity: 0; }
+}
+
+/* =========================================================
+   Certifications pin → Contact scrolls over it
+   ========================================================= */
+/* sticky to BOTTOM, not top: certifications is taller than the viewport, so
+   top:0 would pin it the moment it arrived and strand its lower half. With
+   bottom:0 it scrolls through in full, parks against the viewport floor, and
+   contact rides up over it on a higher layer. */
+/* .stack-reveal is the containing block, so the pin cannot begin before
+   certifications is actually on screen. top:0 (not bottom:0) because the
+   section fits the viewport at these widths — the gate below guarantees it. */
+.stack-reveal { position: relative; }
+#certifications {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+}
+#contact {
+  position: relative;
+  z-index: 2;
+}
+/* the reveal only reads as depth if the incoming panel is opaque and edged */
+.contact {
+  box-shadow: 0 -24px 60px rgba(10, 10, 10, .14);
+  border-top: 1px solid var(--border);
+}
+[data-ui="dark"] .contact { box-shadow: 0 -24px 60px rgba(0, 0, 0, .5); }
+
+/* Opt out where pinning would strand content or fight the user: narrow
+   screens (the cert grid reflows taller than the viewport), short windows,
+   and reduced-motion. */
+@media (max-width: 900px), (max-height: 759px), (prefers-reduced-motion: reduce) {
+  #certifications { position: static; }
+  .contact { box-shadow: none; }
+}
+
 /* =========================================================
    Footer
    ========================================================= */

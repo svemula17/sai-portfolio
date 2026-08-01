@@ -103,6 +103,40 @@
         .fromTo(points, { autoAlpha: 0, x: -14 },
                         { autoAlpha: 1, x: 0, duration: 0.3, stagger: 0.055 }, t + 0.62);
 
+      // ── The title types itself, like the shell drew the path.
+      //    Driven off a proxy object so it needs no TextPlugin, and reverses
+      //    cleanly when the scrub runs backwards.
+      const titleEl = windows[i].querySelector(".os-title");
+      if (titleEl) {
+        const full = titleEl.textContent;
+        const cursor = { n: 0 };
+        tl.set(titleEl, { className: "os-title is-typing" }, t + 0.3)
+          .to(cursor, {
+            n: full.length,
+            duration: 0.5,
+            ease: "none",
+            onUpdate() { titleEl.textContent = full.slice(0, Math.round(cursor.n)); }
+          }, t + 0.32)
+          .set(titleEl, { className: "os-title" }, t + 0.86);
+      }
+
+      // ── Metric chips tick up to their value instead of just appearing.
+      //    Chips whose <b> holds no digits (MTTR, SCPs) are left alone.
+      chips.forEach((chip, ci) => {
+        const b = chip.querySelector("b");
+        if (!b) return;
+        const parts = b.textContent.match(/^(\D*)(\d+)(.*)$/);
+        if (!parts) return;
+        const [, prefix, digits, suffix] = parts;
+        const counter = { v: 0 };
+        tl.to(counter, {
+          v: Number(digits),
+          duration: 0.6,
+          ease: "power2.out",
+          onUpdate() { b.textContent = prefix + Math.round(counter.v) + suffix; }
+        }, t + 0.52 + ci * 0.07);
+      });
+
       // dock icon bounces as its app takes focus, the way macOS announces a launch
       tl.to(apps[i], { y: -10, duration: 0.16, ease: "power2.out" }, t + 0.25)
         .to(apps[i], { y: 0, duration: 0.5, ease: "elastic.out(1, 0.4)" }, t + 0.41);
