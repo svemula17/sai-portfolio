@@ -14,16 +14,16 @@
   --muted-2:   #9c9a92;
   --border:    rgba(20,20,19,.12);
   --border-2:  rgba(20,20,19,.24);
-  --accent:    #4a6cf7;          /* primary button fill */
+  --accent:    #7c3aed;          /* primary button fill */
   --accent-ink:#ffffff;
-  --accent-2:  #4a6cf7;          /* blue accent, matched to dark */
-  --accent-soft: rgba(74,108,247,.12);
+  --accent-2:  #7c3aed;          /* deeper purple: #a855f7 only hits 3.8:1 on ivory */
+  --accent-soft: rgba(168,85,247,.12);
   --glass:     #ffffff;
   --glass-2:   #f0efe9;
-  --glow-1:    rgba(74,108,247,.12);
+  --glow-1:    rgba(168,85,247,.12);
   --glow-2:    rgba(20,20,19,.05);
-  --focus:     #4a6cf7;
-  --gradient-accent: linear-gradient(135deg, #4a6cf7, #6366f1);
+  --focus:     #7c3aed;
+  --gradient-accent: linear-gradient(135deg, #a855f7, #7c3aed);
 
   /* type */
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -86,16 +86,16 @@
   --muted-2:   #6c757d;
   --border:    #2a2d35;
   --border-2:  #3a3e47;
-  --accent:    #4a6cf7;          /* primary button fill */
+  --accent:    #a855f7;          /* primary button fill */
   --accent-ink:#ffffff;
-  --accent-2:  #4a6cf7;          /* accent used by headings + highlights */
-  --accent-soft: rgba(74,108,247,.14);
+  --accent-2:  #a855f7;          /* accent used by headings + highlights */
+  --accent-soft: rgba(168,85,247,.14);
   --glass:     #1a1d24;
   --glass-2:   #21252e;
-  --glow-1:    rgba(74,108,247,.16);
+  --glow-1:    rgba(168,85,247,.16);
   --glow-2:    rgba(99,102,241,.12);
-  --focus:     #4a6cf7;
-  --gradient-accent: linear-gradient(135deg, #4a6cf7, #6366f1);
+  --focus:     #a855f7;
+  --gradient-accent: linear-gradient(135deg, #a855f7, #7c3aed);
   --sh-1: 0 1px 2px rgba(0,0,0,.4);
   --sh-2: 0 4px 30px rgba(0,0,0,.3);
   --sh-3: 0 24px 70px rgba(0,0,0,.66);
@@ -1831,7 +1831,7 @@ html, body { overflow-anchor: none; }
 }
 .btn-pill:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(74,108,247,.35);
+  box-shadow: 0 8px 25px rgba(168,85,247,.35);
 }
 .btn-ghost { border-radius: .5rem; }
 .btn-ghost:hover {
@@ -1917,7 +1917,7 @@ html, body { overflow-anchor: none; }
   z-index: 60;
 }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
-.to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(74,108,247,.35); }
+.to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(168,85,247,.35); }
 
 /* ScrollReveal sets its own opacity; neutralise the old CSS reveal so the two
    systems don't fight over the same elements. */
