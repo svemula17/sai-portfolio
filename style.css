@@ -25,8 +25,8 @@
   --focus:     #c15f3c;
 
   /* type */
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Syne", "Poppins", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --fs-xs:  13px;
   --fs-sm:  14px;
@@ -75,27 +75,28 @@
 }
 
 [data-ui="dark"] {
-  /* color — dark premium (primary theme) */
-  --bg:        #0a0c10;
-  --surface:   #0f1219;
-  --card:      rgba(255,255,255,.038);
-  --ink:       #eef1f6;
-  --ink-2:     #cdd3dd;
-  --muted:     #8b93a1;
-  --muted-2:   #5c636f;
-  --border:    rgba(255,255,255,.09);
-  --border-2:  rgba(255,255,255,.17);
-  --accent:    #eef1f6;          /* near-white primary button */
-  --accent-ink:#0a0c10;
-  --accent-2:  #34d399;          /* emerald accent + glow */
-  --accent-soft: rgba(52,211,153,.14);
-  --glass:     rgba(255,255,255,.045);
-  --glass-2:   rgba(255,255,255,.08);
-  --glow-1:    rgba(52,211,153,.16);
-  --glow-2:    rgba(56,189,248,.12);
-  --focus:     #60a5fa;
+  /* spec palette — near-black base, blue accent */
+  --bg:        #0b0c10;
+  --surface:   #111419;
+  --card:      #1a1d24;
+  --ink:       #ffffff;
+  --ink-2:     #b0b3b8;
+  --muted:     #b0b3b8;
+  --muted-2:   #6c757d;
+  --border:    #2a2d35;
+  --border-2:  #3a3e47;
+  --accent:    #4a6cf7;          /* primary button fill */
+  --accent-ink:#ffffff;
+  --accent-2:  #4a6cf7;          /* accent used by headings + highlights */
+  --accent-soft: rgba(74,108,247,.14);
+  --glass:     #1a1d24;
+  --glass-2:   #21252e;
+  --glow-1:    rgba(74,108,247,.16);
+  --glow-2:    rgba(99,102,241,.12);
+  --focus:     #4a6cf7;
+  --gradient-accent: linear-gradient(135deg, #4a6cf7, #6366f1);
   --sh-1: 0 1px 2px rgba(0,0,0,.4);
-  --sh-2: 0 8px 30px rgba(0,0,0,.5);
+  --sh-2: 0 4px 30px rgba(0,0,0,.3);
   --sh-3: 0 24px 70px rgba(0,0,0,.66);
 }
 
@@ -1804,4 +1805,169 @@ html, body { overflow-anchor: none; }
   .tech-item { padding: 5px 2px; gap: 4px; }
   .skill-chips { gap: 5px; }
   .skill-chips li { font-size: 11px; padding: 2px 8px; }
+}
+
+/* =========================================================
+   Redesign layer — reference-site visual system
+   Appended last so it wins over the original editorial rules
+   without those rules having to be deleted (content is untouched).
+   ========================================================= */
+
+/* ----- Typography: Syne display voice ----- */
+.hero-title,
+.section-head h2,
+.contact-inner h2,
+.proj-text h3,
+.edu-card h3,
+.contact-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.hero-title { font-weight: 800; }
+
+/* The reference site colours one or two words of every section title. */
+.section-head h2 .hl,
+.proj-head h2 .hl,
+.contact-inner h2 .hl { color: var(--accent-2); }
+
+/* ----- Buttons ----- */
+.btn-pill {
+  background: var(--gradient-accent);
+  color: #fff;
+  border-radius: .5rem;
+  padding: 13px 24px;
+}
+.btn-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(74,108,247,.35);
+}
+.btn-ghost { border-radius: .5rem; }
+.btn-ghost:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  background: var(--accent-soft);
+}
+
+/* ----- Cards: 1rem radius, subtle border, accent lift on hover ----- */
+.proj-slide,
+.cert-card,
+.contact-card,
+.edu-card,
+.skill-block {
+  border-radius: 1rem;
+}
+.cert-card,
+.contact-card {
+  border: 1px solid var(--border);
+  background: var(--bg-secondary, var(--surface));
+  transition: transform var(--t) var(--ease), border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+.cert-card:hover,
+.contact-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-2);
+  box-shadow: var(--sh-2);
+}
+.proj-visual img { transition: transform .4s var(--ease); }
+.proj-slide:hover .proj-visual img { transform: scale(1.05); }
+
+/* ----- Skill pills ----- */
+.skill-chips li {
+  border-radius: var(--r-pill);
+  transition: background-color var(--t) var(--ease), color var(--t) var(--ease), transform var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+.skill-chips li:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: #fff;
+  transform: scale(1.06);
+}
+
+/* ----- Social / icon links ----- */
+.hero-contact a { transition: transform var(--t) var(--ease), color var(--t) var(--ease); display: inline-block; }
+.hero-contact a:hover { transform: scale(1.2) translateY(-3px); color: var(--accent-2); }
+
+/* ----- Nav active underline, grown from centre ----- */
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-2);
+  transform: translateX(-50%);
+  transition: width var(--t) var(--ease);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+/* ----- Hero: floating portrait over a morphing blob ----- */
+.hero-portrait {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: var(--sp-8) auto 0;
+  width: min(300px, 62vw);
+  aspect-ratio: 1;
+}
+.hero-blob {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-accent);
+  opacity: .22;
+  filter: blur(2px);
+  animation: morphRotate 8s ease-in-out infinite;
+}
+.hero-portrait img {
+  position: relative;
+  width: 84%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-15px); }
+}
+@keyframes morphRotate {
+  0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); }
+  50%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(360deg); }
+}
+
+/* ----- Back to top ----- */
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: .75rem;
+  background: var(--gradient-accent);
+  color: #fff;
+  font-size: 22px;
+  box-shadow: var(--sh-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity var(--t) var(--ease), transform var(--t) var(--ease), visibility var(--t);
+  z-index: 60;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(74,108,247,.35); }
+
+/* ScrollReveal sets its own opacity; neutralise the old CSS reveal so the two
+   systems don't fight over the same elements. */
+.sr-active .reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait img, .hero-blob { animation: none; }
 }

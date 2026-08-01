@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-ui="light">
+<html lang="en" data-ui="dark">
 
 <head>
   <meta charset="utf-8" />
@@ -23,11 +23,14 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=63" />
+  <!-- Boxicons — icon set for socials, nav and cards -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Swiper — recommendations carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <link rel="stylesheet" href="style.css?v=64" />
 </head>
 
 <body>
@@ -87,6 +90,14 @@
           <span aria-hidden="true">/</span>
           <a href="mailto:svemula127@gmail.com">Email</a>
         </div>
+        <!-- Portrait: drop a square photo at assets/img/profile.jpg and it
+             appears automatically. Stays hidden until then (see script.js)
+             so a missing file never shows a broken-image icon. -->
+        <div class="hero-portrait reveal" id="heroPortrait" aria-hidden="true">
+          <span class="hero-blob"></span>
+          <img src="assets/img/profile.jpg" alt="" loading="lazy">
+        </div>
+
         <p class="hero-status reveal">
           <span class="status-dot" aria-hidden="true"></span>
           Available for DevSecOps, cloud security, and security engineering roles · New Jersey, USA
@@ -106,7 +117,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">About</p>
-          <h2>Security engineer who embeds security into every stage of the SDLC.</h2>
+          <h2>Security engineer who embeds security into <span class="hl">every stage of the SDLC.</span></h2>
         </div>
 
         <div class="about-grid">
@@ -306,7 +317,7 @@
           <div class="container proj-stage-inner">
             <div class="proj-head">
               <p class="eyebrow">Projects</p>
-              <h2>Selected security projects.</h2>
+              <h2>Selected <span class="hl">security projects.</span></h2>
             </div>
 
             <div class="proj-slides">
@@ -398,7 +409,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Skills &amp; Experience</p>
-          <h2>The stack I build, secure, and monitor with.</h2>
+          <h2>The stack I build, secure, and <span class="hl">monitor with.</span></h2>
         </div>
 
         <div class="skill-cols">
@@ -567,7 +578,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Certifications</p>
-          <h2>Hands-on security, cloud, Linux, and automation credentials.</h2>
+          <h2>Hands-on security, cloud, Linux, and <span class="hl">automation credentials.</span></h2>
         </div>
 
         <div class="cert-grid">
@@ -696,7 +707,7 @@
         <div class="container">
           <div class="section-head reveal">
             <p class="eyebrow">Contact</p>
-            <h2>Let's talk.</h2>
+            <h2>Let's <span class="hl">talk.</span></h2>
           </div>
 
           <div class="contact-grid">
@@ -785,6 +796,8 @@
     </div>
   </main>
 
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top"><i class="bx bx-up-arrow-alt" aria-hidden="true"></i></button>
+
   <footer class="footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Sai Kumar Vemula</p>
@@ -812,7 +825,11 @@
     </article>
   </div>
 
-  <script src="script.js?v=27"></script>
+  <!-- ScrollReveal — scroll-triggered entrance animations -->
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+  <!-- Swiper — recommendations carousel -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js?v=29"></script>
   <script src="animations.js?v=3"></script>
   <script defer src="contrib-bg.js?v=3"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

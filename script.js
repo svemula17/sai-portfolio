@@ -430,3 +430,82 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
+
+/* =========================================================
+   Redesign layer — ScrollReveal, Swiper, back-to-top
+   Separate IIFE so a missing CDN degrades to the existing
+   CSS reveal instead of taking the rest of the page down.
+   ========================================================= */
+(() => {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ----- ScrollReveal ----- */
+  if (window.ScrollReveal && !reduced) {
+    /* flags the CSS to stop driving .reveal, so the two systems
+       don't both animate the same nodes */
+    document.body.classList.add("sr-active");
+
+    const sr = ScrollReveal({
+      origin: "bottom", distance: "60px", duration: 1000,
+      delay: 200, reset: false, easing: "ease-out"
+    });
+
+    sr.reveal(".hero-title",    { origin: "top",   delay: 100 });
+    sr.reveal(".hero-lead",     { origin: "top",   delay: 200 });
+    sr.reveal(".hero-portrait", { origin: "right", delay: 300 });
+    sr.reveal(".hero-contact",  { origin: "left",  delay: 400 });
+    sr.reveal(".hero-actions",  { delay: 500 });
+    sr.reveal(".hero-stats",    { delay: 600 });
+    sr.reveal(".about-media",   { origin: "left" });
+    sr.reveal(".about-body",    { origin: "right" });
+    sr.reveal(".proj-slide",    { interval: 200 });
+    sr.reveal(".skill-block",   { interval: 100 });
+    sr.reveal(".cert-card",     { interval: 100 });
+    sr.reveal(".contact-form",  { origin: "right" });
+    sr.reveal(".contact-info",  { origin: "left" });
+  }
+
+  /* ----- Swiper: recommendations ----- */
+  const swiperEl = document.querySelector(".testimonial__swiper");
+  if (swiperEl && window.Swiper) {
+    new Swiper(swiperEl, {
+      loop: true,
+      spaceBetween: 30,
+      autoplay: { delay: 4000, disableOnInteraction: false },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+  }
+
+  /* ----- Back to top ----- */
+  const toTop = document.getElementById("toTop");
+  if (toTop) {
+    let queued = false;
+    const sync = () => {
+      queued = false;
+      toTop.classList.toggle("is-visible", window.scrollY > 500);
+    };
+    window.addEventListener("scroll", () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(sync);
+    }, { passive: true });
+    toTop.addEventListener("click", () =>
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" }));
+    sync();
+  }
+})();
+
+/* Portrait only becomes visible once its file actually loads, so the
+   placeholder path can ship without showing a broken image. */
+(() => {
+  const portrait = document.getElementById("heroPortrait");
+  if (!portrait) return;
+  const img = portrait.querySelector("img");
+  portrait.style.display = "none";
+  if (!img) return;
+  img.addEventListener("load", () => {
+    portrait.style.display = "";
+    portrait.removeAttribute("aria-hidden");
+  });
+})();
