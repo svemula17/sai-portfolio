@@ -60,7 +60,7 @@
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: () => "+=" + Math.round(window.innerHeight * 3.8),
+        end: () => "+=" + Math.round(window.innerHeight * 2.2),
         scrub: 1,
         pin: stage,
         anticipatePin: 1,

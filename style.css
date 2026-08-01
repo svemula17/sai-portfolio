@@ -823,7 +823,9 @@ main, .footer { position: relative; z-index: 1; }
 
 .proj-scroller {
   position: relative;
-  height: 400vh; /* 4 slides × 100vh */
+  /* 65vh per slide, not 100vh: a full viewport of scroll per project made the
+     section 4 screens tall, which is longer than most visitors will stay. */
+  height: 260vh;
 }
 .proj-stage {
   position: sticky;
