@@ -1,0 +1,68 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Cooking App preview</title>
+  <desc id="desc">Abstract product mockup for an AI-assisted cooking app with recipes, nutrition, and shopping workflows.</desc>
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1440" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071821"/>
+      <stop offset="0.55" stop-color="#12343d"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 230) rotate(130) scale(430 560)">
+      <stop stop-color="#fbbf24" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="200" y1="230" x2="1340" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="420" y1="220" x2="1220" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f97316"/>
+      <stop offset="1" stop-color="#facc15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" rx="48" fill="url(#bg)"/>
+  <circle cx="1300" cy="220" r="260" fill="url(#glow)"/>
+  <circle cx="240" cy="820" r="180" fill="#14b8a6" fill-opacity="0.16"/>
+  <circle cx="520" cy="160" r="96" fill="#fbbf24" fill-opacity="0.14"/>
+  <rect x="170" y="150" width="1260" height="700" rx="44" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.14"/>
+
+  <rect x="230" y="220" width="400" height="560" rx="32" fill="#09161b" fill-opacity="0.82" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="680" y="220" width="690" height="146" rx="28" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.1"/>
+  <rect x="680" y="388" width="330" height="392" rx="28" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.1"/>
+  <rect x="1038" y="388" width="332" height="392" rx="28" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.1"/>
+
+  <text x="280" y="298" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-0.03em">Smart Cooking App</text>
+  <text x="280" y="346" fill="#d1fae5" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500">AI recipes, guided cooking, and grocery planning</text>
+
+  <rect x="280" y="396" width="310" height="92" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="280" y="512" width="310" height="92" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="280" y="628" width="310" height="92" rx="22" fill="#ffffff" fill-opacity="0.08"/>
+  <circle cx="318" cy="442" r="18" fill="url(#accent)"/>
+  <circle cx="318" cy="558" r="18" fill="url(#accent)"/>
+  <circle cx="318" cy="674" r="18" fill="url(#accent)"/>
+  <text x="352" y="438" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Recipes</text>
+  <text x="352" y="454" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Discover, save, and organize meals by mood.</text>
+  <text x="352" y="554" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Nutrition</text>
+  <text x="352" y="570" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Track macros and daily meal progress.</text>
+  <text x="352" y="670" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Shopping</text>
+  <text x="352" y="686" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Turn ingredients into a ready grocery list.</text>
+
+  <text x="736" y="282" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Cross-service architecture</text>
+  <text x="736" y="322" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">React Native + Node + FastAPI + AI service layers</text>
+
+  <rect x="736" y="432" width="250" height="76" rx="20" fill="#0f172a" fill-opacity="0.7"/>
+  <rect x="1016" y="432" width="250" height="76" rx="20" fill="#0f172a" fill-opacity="0.7"/>
+  <rect x="736" y="532" width="250" height="76" rx="20" fill="#0f172a" fill-opacity="0.7"/>
+  <rect x="1016" y="532" width="250" height="76" rx="20" fill="#0f172a" fill-opacity="0.7"/>
+  <rect x="736" y="632" width="530" height="84" rx="22" fill="#0f172a" fill-opacity="0.7"/>
+
+  <text x="768" y="480" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Meal planning</text>
+  <text x="768" y="510" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Recipe recommendations and substitutions</text>
+  <text x="1048" y="480" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Guided cooking</text>
+  <text x="1048" y="510" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Step-by-step timers and cooking mode</text>
+  <text x="768" y="580" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">AI assistant</text>
+  <text x="768" y="610" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Ingredient swaps, prep help, and meal variety</text>
+  <text x="1048" y="580" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Grocery delivery</text>
+  <text x="1048" y="610" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="400">Instacart and Walmart-ready shopping flow</text>
+  <text x="768" y="686" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Built for a complete home-cooking workflow.</text>
+</svg>

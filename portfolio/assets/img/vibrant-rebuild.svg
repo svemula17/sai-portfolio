@@ -1,0 +1,66 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Vibrant Inc Rebuild preview</title>
+  <desc id="desc">Abstract marketing-site mockup for a cleaner Next.js rebuild focused on SEO, content, and conversion.</desc>
+  <defs>
+    <linearGradient id="bg" x1="140" y1="90" x2="1460" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0f2740"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1250 220) rotate(118) scale(360 480)">
+      <stop stop-color="#34d399" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 760) rotate(10) scale(300 220)">
+      <stop stop-color="#60a5fa" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" rx="48" fill="url(#bg)"/>
+  <circle cx="1260" cy="210" r="250" fill="url(#glowA)"/>
+  <circle cx="320" cy="790" r="220" fill="url(#glowB)"/>
+
+  <rect x="150" y="150" width="1300" height="700" rx="44" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="220" y="220" width="1160" height="88" rx="24" fill="#08111f" fill-opacity="0.58"/>
+  <rect x="248" y="246" width="108" height="36" rx="18" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="376" y="246" width="108" height="36" rx="18" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="504" y="246" width="108" height="36" rx="18" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="632" y="246" width="108" height="36" rx="18" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="760" y="246" width="108" height="36" rx="18" fill="#34d399" fill-opacity="0.3"/>
+  <rect x="888" y="246" width="108" height="36" rx="18" fill="#ffffff" fill-opacity="0.12"/>
+
+  <rect x="220" y="346" width="520" height="434" rx="32" fill="#08111f" fill-opacity="0.74"/>
+  <rect x="782" y="346" width="598" height="208" rx="32" fill="#08111f" fill-opacity="0.74"/>
+  <rect x="782" y="582" width="286" height="198" rx="32" fill="#08111f" fill-opacity="0.74"/>
+  <rect x="1094" y="582" width="286" height="198" rx="32" fill="#08111f" fill-opacity="0.74"/>
+
+  <text x="260" y="430" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-0.03em">Vibrant Inc Rebuild</text>
+  <text x="260" y="480" fill="#d1fae5" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="500">Clearer IA, stronger branding, and a cleaner path to contact</text>
+  <text x="260" y="534" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="400">Next.js App Router build with SEO metadata, redirects, robots, and sitemap support.</text>
+  <text x="260" y="570" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="400">CMS-ready content collections and a lighter experience that is easier to maintain.</text>
+
+  <rect x="260" y="624" width="138" height="58" rx="18" fill="#34d399"/>
+  <rect x="412" y="624" width="138" height="58" rx="18" fill="#60a5fa"/>
+  <rect x="564" y="624" width="138" height="58" rx="18" fill="#f59e0b"/>
+  <text x="289" y="661" fill="#04111b" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Home</text>
+  <text x="432" y="661" fill="#04111b" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Services</text>
+  <text x="590" y="661" fill="#04111b" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Contact</text>
+
+  <text x="824" y="414" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Lead generation tuned for clarity</text>
+  <text x="824" y="454" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="400">A smaller path from first visit to contact form submission.</text>
+  <rect x="824" y="492" width="190" height="34" rx="17" fill="#10b981" fill-opacity="0.4"/>
+  <rect x="1030" y="492" width="190" height="34" rx="17" fill="#60a5fa" fill-opacity="0.35"/>
+  <rect x="1236" y="492" width="114" height="34" rx="17" fill="#f59e0b" fill-opacity="0.35"/>
+  <text x="852" y="515" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">SEO metadata</text>
+  <text x="1061" y="515" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">CMS-ready</text>
+  <text x="1258" y="515" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Contact</text>
+
+  <rect x="824" y="626" width="236" height="110" rx="24" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="1082" y="626" width="236" height="110" rx="24" fill="#ffffff" fill-opacity="0.08"/>
+  <text x="858" y="668" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Home</text>
+  <text x="858" y="700" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="400">Hero, services, and trust signals.</text>
+  <text x="1118" y="668" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Conversion</text>
+  <text x="1118" y="700" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="400">Simple contact flow and stronger CTA.</text>
+
+  <text x="824" y="792" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">Built to feel easier to trust, easier to scan, and easier to maintain.</text>
+</svg>

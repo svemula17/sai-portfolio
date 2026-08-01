@@ -1,0 +1,75 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t d">
+  <title id="t">AI Guardrail Testing Platform preview</title>
+  <desc id="d">Abstract diagram of an agentic AI app tested across bare, proxy, and full guardrail modes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1440" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b0a1f"/>
+      <stop offset="0.55" stop-color="#241a4d"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 240) rotate(130) scale(440 560)">
+      <stop stop-color="#a78bfa" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="200" y1="230" x2="1340" y2="810" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="420" y1="220" x2="1220" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" rx="48" fill="url(#bg)"/>
+  <circle cx="1300" cy="230" r="260" fill="url(#glow)"/>
+  <circle cx="240" cy="820" r="180" fill="#22d3ee" fill-opacity="0.16"/>
+  <circle cx="520" cy="150" r="92" fill="#a78bfa" fill-opacity="0.16"/>
+  <rect x="170" y="150" width="1260" height="700" rx="44" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.14"/>
+
+  <text x="232" y="262" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-0.03em">AI Guardrail Lab</text>
+  <text x="234" y="312" fill="#d8ccff" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="500">Red-teaming an agentic app across guardrail layers</text>
+
+  <!-- pipeline: user -> agent -> tools, with shield between -->
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="232" y="372" width="170" height="92" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="262" y="416" fill="#cbd5e1" font-size="19" font-weight="600">Adversary</text>
+    <text x="262" y="442" fill="#94a3b8" font-size="15">60 scenarios</text>
+
+    <path d="M402 418 h70" stroke="#22d3ee" stroke-width="3" marker-end="url(#a)"/>
+    <rect x="476" y="360" width="150" height="116" rx="18" fill="url(#acc)" fill-opacity="0.22" stroke="#a78bfa" stroke-opacity="0.5"/>
+    <path d="M551 378 c22 9 44 9 66 0 l0 34 c0 26 -18 42 -33 50 c-15 -8 -33 -24 -33 -50 z" fill="url(#acc)"/>
+    <path d="M540 430 l8 8 l16 -18" stroke="#0b0a1f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(3 0)"/>
+    <text x="486" y="466" fill="#e9e2ff" font-size="15" font-weight="600">Shield</text>
+
+    <path d="M626 418 h70" stroke="#22d3ee" stroke-width="3"/>
+    <rect x="700" y="372" width="180" height="92" rx="18" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.12"/>
+    <text x="730" y="416" fill="#cbd5e1" font-size="19" font-weight="600">LangChain</text>
+    <text x="730" y="442" fill="#94a3b8" font-size="15">agent · 10 tools</text>
+  </g>
+
+  <!-- three modes -->
+  <g font-family="'JetBrains Mono', monospace" font-size="17">
+    <rect x="232" y="520" width="648" height="60" rx="14" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="256" y="557" fill="#94a3b8">bare</text><text x="430" y="557" fill="#f87171">guardrails OFF</text>
+    <rect x="232" y="592" width="648" height="60" rx="14" fill="#ffffff" fill-opacity="0.06"/>
+    <text x="256" y="629" fill="#94a3b8">proxy</text><text x="430" y="629" fill="#fbbf24">LiteLLM proxy ON</text>
+    <rect x="232" y="664" width="648" height="60" rx="14" fill="#a78bfa" fill-opacity="0.14"/>
+    <text x="256" y="701" fill="#d8ccff">full</text><text x="430" y="701" fill="#34d399">shield + proxy ON</text>
+  </g>
+
+  <!-- pass-rate panel -->
+  <rect x="922" y="372" width="448" height="352" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+  <text x="952" y="416" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Guardrail coverage</text>
+  <g>
+    <rect x="952" y="452" width="388" height="22" rx="11" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="952" y="452" width="120" height="22" rx="11" fill="#f87171"/>
+    <text x="952" y="500" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="15">bare · 31%</text>
+    <rect x="952" y="528" width="388" height="22" rx="11" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="952" y="528" width="248" height="22" rx="11" fill="#fbbf24"/>
+    <text x="952" y="576" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="15">proxy · 64%</text>
+    <rect x="952" y="604" width="388" height="22" rx="11" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="952" y="604" width="368" height="22" rx="11" fill="#34d399"/>
+    <text x="952" y="652" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="15">full · 95%</text>
+  </g>
+  <text x="952" y="700" fill="#a78bfa" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">prompt-injection · jailbreak · data-leak</text>
+</svg>
