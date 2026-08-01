@@ -698,6 +698,59 @@ p { margin: 0; }
 /* =========================================================
    Skills
    ========================================================= */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--sp-6) var(--sp-4);
+  margin-bottom: var(--sp-12);
+}
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-5) var(--sp-2);
+  border-radius: var(--r-lg);
+  transition: transform var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+.tech-item:hover {
+  transform: translateY(-3px);
+  background: var(--glass-2);
+}
+.tech-logo {
+  width: 38px;
+  height: 38px;
+  color: var(--brand);
+}
+.tech-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.tech-name {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.3;
+  transition: color var(--t) var(--ease);
+}
+.tech-item:hover .tech-name { color: var(--ink); }
+
+/* brands whose stock hex disappears against the dark sheet */
+[data-ui="dark"] .tech-logo { color: var(--brand-dark, var(--brand)); }
+
+.tech-divider {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted-2);
+  margin-bottom: var(--sp-5);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
 .skills-matrix {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1169,6 +1222,7 @@ body.case-modal-open { overflow: hidden; }
 }
 
 @media (max-width: 900px) {
+  .tech-grid { grid-template-columns: repeat(4, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
   .edu-block { padding-top: var(--sp-6); border-top: 1px solid var(--border); }
 
@@ -1610,6 +1664,8 @@ html, body { overflow-anchor: none; }
 }
 
 @media (max-width: 560px) {
+  .tech-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-4) var(--sp-2); }
+  .tech-logo { width: 32px; height: 32px; }
   .jstage-inner { padding: var(--sp-16) var(--sp-5); }
   .os-body { padding: 12px 14px 14px; }
   .os-menus { display: none; }
