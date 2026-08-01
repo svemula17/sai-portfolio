@@ -453,22 +453,28 @@
        don't both animate the same nodes */
     document.body.classList.add("sr-active");
 
+    /* Sideways entrances push elements past the right edge on narrow
+       viewports, which showed up as 192px of horizontal scroll on tablet.
+       Below 900px everything enters from the bottom instead. */
+    const narrow = window.matchMedia("(max-width: 900px)").matches;
+    const side = o => (narrow ? "bottom" : o);
+
     const sr = ScrollReveal({
-      origin: "bottom", distance: "60px", duration: 1000,
+      origin: "bottom", distance: narrow ? "34px" : "60px", duration: 1000,
       delay: 200, reset: false, easing: "ease-out"
     });
 
     sr.reveal(".hero-title",    { origin: "top",   delay: 100 });
     sr.reveal(".hero-lead",     { origin: "top",   delay: 200 });
-    sr.reveal(".hero-contact",  { origin: "left",  delay: 400 });
+    sr.reveal(".hero-contact",  { origin: side("left"),  delay: 400 });
     sr.reveal(".hero-actions",  { delay: 500 });
     sr.reveal(".hero-stats",    { delay: 600 });
     /* every section title, so no section starts flat */
     sr.reveal(".section-head",  { origin: "top", delay: 100 });
     sr.reveal(".proj-head",     { origin: "top", delay: 100 });
 
-    sr.reveal(".about-body",    { origin: "right" });
-    sr.reveal(".about-meta",    { origin: "left" });
+    sr.reveal(".about-body",    { origin: side("right") });
+    sr.reveal(".about-meta",    { origin: side("left") });
     /* NOT .proj-slide: those crossfade via .is-active, and ScrollReveal's
        inline opacity overrode it, leaving two slides stacked and visible. */
     sr.reveal(".skill-block",   { interval: 100 });
@@ -476,9 +482,9 @@
     sr.reveal(".tech-item",     { interval: 40, distance: "26px", duration: 700 });
     sr.reveal(".cert-card",     { interval: 100 });
     sr.reveal(".edu-card",      { interval: 150 });
-    sr.reveal(".info-list li",  { origin: "left", interval: 120 });
-    sr.reveal(".contact-form",  { origin: "right" });
-    sr.reveal(".contact-info",  { origin: "left" });
+    sr.reveal(".info-list li",  { origin: side("left"), interval: 120 });
+    sr.reveal(".contact-form",  { origin: side("right") });
+    sr.reveal(".contact-info",  { origin: side("left") });
   }
 
   /* ----- Swiper: recommendations ----- */
@@ -571,4 +577,35 @@
   } else {
     heads.forEach(h => h.classList.add("is-seen"));
   }
+})();
+
+/* =========================================================
+   ScrollReveal safety net
+   SR hides elements (opacity:0) then animates them in via rAF. If those
+   frames never arrive — background tab, low-power mode, a throttled
+   webview — the content stays invisible with no way to recover. Anything
+   sitting in the viewport and still fully transparent gets forced visible.
+   ========================================================= */
+(() => {
+  if (!window.ScrollReveal) return;
+
+  function rescue() {
+    document.querySelectorAll('[style*="visibility"]').forEach(el => {
+      const r = el.getBoundingClientRect();
+      const inView = r.top < window.innerHeight && r.bottom > 0 && r.width > 0;
+      if (inView && getComputedStyle(el).opacity === "0") {
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      }
+    });
+  }
+
+  /* one pass after SR has had time to animate normally, then on scroll */
+  setTimeout(rescue, 2000);
+  let queued = false;
+  window.addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    setTimeout(() => { queued = false; rescue(); }, 900);
+  }, { passive: true });
 })();

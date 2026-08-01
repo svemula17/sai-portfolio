@@ -118,6 +118,10 @@ body {
   transition: background-color var(--t) var(--ease), color var(--t) var(--ease);
 }
 img, svg { display: block; max-width: 100%; height: auto; }
+/* Safety net for entrance animations and hover scales that momentarily reach
+   past the right edge. `clip` rather than `hidden`: hidden makes body a scroll
+   container, which breaks the ScrollTrigger pin in the journey section. */
+body { overflow-x: clip; }
 button { font: inherit; cursor: pointer; background: none; border: 0; color: inherit; }
 a { color: inherit; text-decoration: none; }
 ul { padding: 0; margin: 0; list-style: none; }
