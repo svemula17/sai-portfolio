@@ -1657,6 +1657,35 @@ html, body { overflow-anchor: none; }
   font-family: var(--font-mono); font-size: 11px; color: #aeb7c4; white-space: nowrap;
 }
 .os-chip b { color: #7ef0c0; font-weight: 500; }
+
+/* ── Journey micro-interactions ──────────────────────────────────────
+   journey.js drives the scroll timeline, dock fisheye and cursor tilt;
+   these are the small hover states that reward poking at it. */
+.os-dots i { transition: transform 160ms var(--ease), box-shadow 160ms var(--ease); }
+.os-titlebar:hover .os-dots i:nth-child(1) { box-shadow: 0 0 10px #e5657b; transform: scale(1.15); }
+.os-titlebar:hover .os-dots i:nth-child(2) { box-shadow: 0 0 10px #e3b341; transform: scale(1.15); }
+.os-titlebar:hover .os-dots i:nth-child(3) { box-shadow: 0 0 10px #34d399; transform: scale(1.15); }
+
+.os-chip {
+  transition: transform 200ms var(--ease), border-color 200ms var(--ease), background-color 200ms var(--ease);
+}
+.os-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126,240,192,.55);
+  background: rgba(126,240,192,.10);
+}
+
+.os-points li { transition: color 200ms var(--ease), transform 200ms var(--ease); }
+.os-points li:hover { color: #e8eef7; transform: translateX(3px); }
+
+/* GSAP owns the dock icon transform, so hover only tints the glass */
+.dock-app { transition: filter 200ms var(--ease); }
+.dock-app:hover { filter: brightness(1.15) saturate(1.15); }
+.dock-app { cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  .os-dots i, .os-chip, .os-points li, .dock-app { transition: none; }
+}
 .os-points { border-top: 1px solid rgba(255,255,255,.07); padding-top: 8px; }
 .os-points li {
   position: relative; padding: 3px 0 3px 17px;
