@@ -72,14 +72,14 @@
   }
 
   /* ----- Auto-add reveal class to grouped items ----- */
-  document.querySelectorAll(".stat, .skill-group, .tech-item, .cert-card, .edu-card, .about-body")
+  document.querySelectorAll(".stat, .tech-item, .cert-card, .edu-card, .about-body")
     .forEach(el => {
       if (!el.classList.contains("reveal")) el.classList.add("reveal");
     });
 
   /* ----- Staggered reveals for grid children ----- */
   const STAGGER_MS = 80;
-  [".stats-grid", ".tech-grid", ".skills-matrix", ".cert-grid"]
+  [".stats-grid", ".tech-grid", ".cert-grid"]
     .forEach(sel => {
       document.querySelectorAll(sel).forEach(grid => {
         [...grid.children].forEach((child, i) => {
@@ -89,6 +89,30 @@
         });
       });
     });
+
+  /* ----- Skills: sweep the logos, one at a time -----
+     Delays are stamped across ALL logos in document order, not per-grid,
+     so the sweep reads as one wave crossing the whole section rather than
+     five grids pulsing in parallel. Gated on visibility so it isn't
+     animating off screen. */
+  const skillsSection = document.getElementById("skills");
+  if (skillsSection) {
+    const logos = [...skillsSection.querySelectorAll(".tech-logo")];
+    const CYCLE_S = 9;
+    logos.forEach((logo, i) => {
+      logo.style.setProperty("--pulse-delay", `${(i * CYCLE_S / logos.length).toFixed(2)}s`);
+    });
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          skillsSection.classList.toggle("skills-live", entry.isIntersecting);
+        });
+      }, { threshold: 0 }).observe(skillsSection);
+    } else {
+      skillsSection.classList.add("skills-live");
+    }
+  }
 
   /* ----- Reveal on scroll (single observer) ----- */
   const reveal = document.querySelectorAll(".reveal");

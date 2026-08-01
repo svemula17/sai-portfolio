@@ -739,9 +739,35 @@ html { background: var(--bg); }
   transition: transform var(--t) var(--ease), background-color var(--t) var(--ease);
 }
 .tech-item:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   background: var(--glass-2);
 }
+/* tiles pop in rather than just sliding — script.js staggers them */
+.tech-item.reveal { transform: translateY(8px) scale(.9); }
+.tech-item.reveal.in-view { transform: translateY(0) scale(1); }
+/* re-assert hover: the two-class reveal selector above outranks :hover alone */
+.tech-item.reveal.in-view:hover { transform: translateY(-4px) scale(1); }
+
+/* A slow sweep travels the grid, lifting one logo at a time — the same
+   idea as the "commit" cursor crossing the hero contributions graph.
+   script.js stamps --pulse-delay per logo and only adds .skills-live
+   while the section is on screen, so it isn't animating out of view.
+   Lives on .tech-logo, not .tech-item, so it can't fight the hover
+   transform above. */
+@keyframes techPulse {
+  0%, 86%, 100% { transform: scale(1);    opacity: .82; }
+  93%           { transform: scale(1.18); opacity: 1; }
+}
+.skills-live .tech-logo {
+  animation: techPulse 9s var(--ease) infinite;
+  animation-delay: var(--pulse-delay, 0s);
+}
+.tech-item:hover .tech-logo { animation-play-state: paused; opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-live .tech-logo { animation: none; opacity: 1; }
+}
+
 .tech-logo {
   width: 28px;
   height: 28px;
@@ -1033,7 +1059,7 @@ html { background: var(--bg); }
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: var(--sp-6);
-  align-items: start;
+  align-items: stretch;   /* both cards run the same height, as in the reference */
 }
 .contact-card {
   background: var(--card);
@@ -1114,9 +1140,11 @@ html { background: var(--bg); }
 .info-label { font-weight: 600; color: var(--ink); }
 .info-body a { border-bottom: 1px solid var(--border-2); }
 .info-body a:hover { border-color: var(--accent-2); }
+/* column layout so the resume CTA can pin to the bottom of the taller card */
+.contact-info { display: flex; flex-direction: column; }
 .find-me { margin-bottom: var(--sp-4); }
 .contact-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-5); }
-.contact-resume { width: 100%; justify-content: center; }
+.contact-resume { width: 100%; justify-content: center; margin-top: auto; }
 
 /* =========================================================
    Footer
@@ -1702,4 +1730,19 @@ html, body { overflow-anchor: none; }
   .journey.is-cinematic .jstage-inner { display: block; height: auto; }
   .journey.is-cinematic .jscene { position: relative; inset: auto; margin: 0 auto var(--sp-20); }
   .journey-hint { display: none !important; }
+}
+
+
+/* Short laptop screens: tighten everything a further notch so the section
+   still lands inside one window. Desktop-width only — below 900px the two
+   columns stack and one-screen stops being achievable anyway. */
+@media (min-width: 901px) and (max-height: 830px) {
+  .section--fit { padding-top: 30px; padding-bottom: 30px; }
+  .skill-col { gap: var(--sp-3); }
+  .skill-block-label { margin-bottom: 5px; }
+  .tech-logo { width: 24px; height: 24px; }
+  .tech-name { font-size: 10px; }
+  .tech-item { padding: 5px 2px; gap: 4px; }
+  .skill-chips { gap: 5px; }
+  .skill-chips li { font-size: 11px; padding: 2px 8px; }
 }
