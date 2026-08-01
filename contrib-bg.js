@@ -17,18 +17,20 @@
   const CELL = 12;
   const CORNER = 3;
 
-  /* GitHub heatmap palettes, hot = site emerald accent */
+  /* GitHub-style heatmap ramps, hot = site purple accent */
   const PALETTES = {
     dark: {
-      levels: ["#11151c", "#0e4429", "#006d32", "#26a641", "#39d353"],
-      hot: "#34d399",
+      /* purple ramp, matching --accent-2 (#a855f7); level 0 is the
+         near-black resting cell, so quiet days stay quiet */
+      levels: ["#15121c", "#2e1065", "#5b21b6", "#7c3aed", "#a855f7"],
+      hot: "#a855f7",
       cursorFill: "#e6edf3",
       cursorLine: "rgba(10,12,16,.92)"
     },
     light: {
-      /* warm clay ramp — matches the ivory editorial theme */
-      levels: ["#f0efe9", "#eeddd2", "#e6bda4", "#d89370", "#c15f3c"],
-      hot: "#c15f3c",
+      /* same hue on ivory, ending at the deeper #7c3aed the light theme uses */
+      levels: ["#f0efe9", "#e9e2f7", "#cdbaf0", "#a98ae0", "#7c3aed"],
+      hot: "#7c3aed",
       cursorFill: "#141413",
       cursorLine: "rgba(250,249,245,.92)"
     }

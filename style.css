@@ -458,7 +458,7 @@ main, .footer { position: relative; z-index: 1; }
   pointer-events: none;
   overflow: hidden;
 }
-/* primary emerald aura behind the headline */
+/* primary purple aura behind the headline */
 .hero-glow::before {
   content: "";
   position: absolute;
