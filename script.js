@@ -461,7 +461,8 @@
 
     sr.reveal(".about-body",    { origin: "right" });
     sr.reveal(".about-meta",    { origin: "left" });
-    sr.reveal(".proj-slide",    { interval: 200 });
+    /* NOT .proj-slide: those crossfade via .is-active, and ScrollReveal's
+       inline opacity overrode it, leaving two slides stacked and visible. */
     sr.reveal(".skill-block",   { interval: 100 });
     /* logos sweep in a wave rather than a block */
     sr.reveal(".tech-item",     { interval: 40, distance: "26px", duration: 700 });
