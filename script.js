@@ -210,7 +210,7 @@
        the key arrives by mail). It is designed to be public, so it is safe in
        client-side source. While it is blank the form falls back to mailto, so
        the page keeps working either way. */
-    const WEB3FORMS_KEY = "";
+    const WEB3FORMS_KEY = "bf8e1317-b50d-4c00-9f64-b92c024e0283";
     const TO_EMAIL = "svemula127@gmail.com";
 
     const setNote = (text, state) => {
