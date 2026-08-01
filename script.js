@@ -504,3 +504,63 @@
   }
 })();
 
+
+/* =========================================================
+   Scroll-linked motion: progress bar, parallax, heading rules
+   All reads happen once per frame inside rAF so scrolling never
+   thrashes layout, and everything is transform-only.
+   ========================================================= */
+(() => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".section-head, .proj-head")
+      .forEach(el => el.classList.add("is-seen"));
+    return;
+  }
+
+  const bar = document.getElementById("scrollProgress");
+  const artwork = [...document.querySelectorAll(".proj-visual img")];
+  let queued = false;
+
+  function frame() {
+    queued = false;
+
+    if (bar) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      bar.style.transform = `scaleX(${pct.toFixed(4)})`;
+    }
+
+    /* parallax only for art currently on screen — offscreen cards cost nothing */
+    const vh = window.innerHeight;
+    for (const img of artwork) {
+      const r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) continue;
+      const progress = (r.top + r.height / 2 - vh / 2) / vh;  // -1 … 1
+      img.style.transform = `translate3d(0, ${(progress * -18).toFixed(2)}px, 0) scale(1.06)`;
+    }
+  }
+
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  frame();
+
+  /* heading accent rules draw once, when the heading first arrives */
+  const heads = document.querySelectorAll(".section-head, .proj-head");
+  if ("IntersectionObserver" in window && heads.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-seen");
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.25 });
+    heads.forEach(h => io.observe(h));
+  } else {
+    heads.forEach(h => h.classList.add("is-seen"));
+  }
+})();
