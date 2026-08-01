@@ -7,8 +7,7 @@
 
 (() => {
   const canvas = document.getElementById("contribCanvas");
-  const hero = document.querySelector(".hero--mesh");
-  if (!canvas || !hero) return;
+  if (!canvas) return;
 
   const ctx = canvas.getContext("2d");
   const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -100,9 +99,9 @@
   }
 
   function resize() {
-    const rect = hero.getBoundingClientRect();
-    w = Math.max(1, Math.round(rect.width));
-    h = Math.max(1, Math.round(rect.height));
+    /* fixed to the viewport now, not to the hero box */
+    w = Math.max(1, Math.round(window.innerWidth));
+    h = Math.max(1, Math.round(window.innerHeight));
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = w * dpr;
     canvas.height = h * dpr;
@@ -217,10 +216,10 @@
 
   /* ----- real pointer takes over ----- */
   let pointerX = -1, pointerY = -1, pointerAt = -Infinity;
-  hero.addEventListener("pointermove", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    pointerX = e.clientX - rect.left;
-    pointerY = e.clientY - rect.top;
+  /* the canvas is viewport-fixed, so client coords are already canvas coords */
+  window.addEventListener("pointermove", (e) => {
+    pointerX = e.clientX;
+    pointerY = e.clientY;
     pointerAt = performance.now();
   }, { passive: true });
 
@@ -340,12 +339,36 @@
 
   motionQuery.addEventListener?.("change", start);
 
-  if ("ResizeObserver" in window) {
-    new ResizeObserver(resize).observe(hero);
-  } else {
-    window.addEventListener("resize", resize);
+  /* ----- scroll fade -----
+     Full strength over the hero, easing down to a whisper for the rest of
+     the page so the grid reads as texture behind content, never competition. */
+  const HERO_ALPHA = 0.55;
+  const PAGE_ALPHA = 0.10;
+  let fadeQueued = false;
+
+  function applyFade() {
+    fadeQueued = false;
+    const span = Math.max(1, window.innerHeight * 0.85);
+    const t = Math.min(1, Math.max(0, window.scrollY / span));
+    const eased = t * t * (3 - 2 * t); // smoothstep
+    canvas.style.opacity = (HERO_ALPHA + (PAGE_ALPHA - HERO_ALPHA) * eased).toFixed(3);
   }
+  function queueFade() {
+    if (fadeQueued) return;
+    fadeQueued = true;
+    requestAnimationFrame(applyFade);
+  }
+  window.addEventListener("scroll", queueFade, { passive: true });
+
+  /* a full-page animation shouldn't keep burning frames in a background tab */
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) cancelAnimationFrame(rafId);
+    else start();
+  });
+
+  window.addEventListener("resize", () => { resize(); applyFade(); });
 
   resize();
+  applyFade();
   start();
 })();

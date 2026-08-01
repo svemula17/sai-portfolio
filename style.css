@@ -110,7 +110,7 @@ body {
   font-size: var(--fs-md);
   line-height: 1.6;
   color: var(--ink);
-  background: var(--bg);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color var(--t) var(--ease), color var(--t) var(--ease);
@@ -424,11 +424,13 @@ p { margin: 0; }
   min-height: 100vh;
   min-height: 100svh;
   padding: clamp(84px, 13vh, 150px) 0 clamp(28px, 5vh, 52px);
-  background: var(--bg);
+  background: transparent;
 }
-/* GitHub-contributions animated grid behind the hero */
-.hero-contrib {
-  position: absolute;
+/* GitHub-contributions animated grid — fixed behind the entire page.
+   contrib-bg.js drives the opacity: full strength over the hero, fading
+   to a whisper once you scroll past it. */
+.site-contrib {
+  position: fixed;
   inset: 0;
   z-index: 0;
   display: block;
@@ -436,13 +438,15 @@ p { margin: 0; }
   height: 100%;
   pointer-events: none;
   opacity: .55;
-  /* recede behind the headline — strong at the edges, quiet in the middle */
-  -webkit-mask-image: radial-gradient(85% 72% at 50% 44%, rgba(0,0,0,.16) 0%, rgba(0,0,0,.5) 52%, #000 88%);
-  mask-image: radial-gradient(85% 72% at 50% 44%, rgba(0,0,0,.16) 0%, rgba(0,0,0,.5) 52%, #000 88%);
   /* keep the graph subtle behind the headline, vivid at the edges */
   -webkit-mask-image: radial-gradient(ellipse 64% 58% at 50% 44%, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 52%, #000 88%);
   mask-image: radial-gradient(ellipse 64% 58% at 50% 44%, rgba(0,0,0,.08) 0%, rgba(0,0,0,.34) 52%, #000 88%);
 }
+
+/* The base colour moves to <html> so <body> can go transparent and let the
+   fixed canvas show through every section that doesn't paint its own. */
+html { background: var(--bg); }
+.nav, main, .footer { position: relative; z-index: 1; }
 .hero-glow {
   position: absolute;
   inset: 0;
@@ -1299,7 +1303,8 @@ html, body { overflow-anchor: none; }
    like a macOS full-screen app hiding the menu bar */
 .nav.nav--journey-hide { transform: translateY(-100%); }
 
-.journey { position: relative; background: var(--bg); overflow: hidden; }
+/* transparent, not var(--bg) — same colour, but lets the fixed grid through */
+.journey { position: relative; background: transparent; overflow: hidden; }
 .journey-stage { display: flex; align-items: center; justify-content: center; }
 .jstage-inner {
   position: relative;
