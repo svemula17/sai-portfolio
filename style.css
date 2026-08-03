@@ -694,6 +694,11 @@ main, .footer { position: relative; z-index: 1; }
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  /* raised band, same tone the contact section uses, so the page reads as
+     alternating surfaces rather than one continuous sheet */
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 #about::before,
 .proj-stage::before {
