@@ -325,7 +325,7 @@
     pentest: {
       title: "AI Pen-Test Agent",
       problem: "Manual penetration testing is slow, inconsistent, and requires an expert who knows dozens of specialized tools and when to use each one.",
-      built: "An autonomous penetration testing agent that orchestrates 17 tools (nmap, gobuster, sqlmap, Metasploit parsers, and more). It reads tool output, decides the next move, and writes a professional Markdown report with severity ratings and fix advice. Supports Claude, Gemini, or a built-in deterministic planner. Hard safety rails enforce lab-only targeting (DVWA).",
+      built: "An autonomous penetration testing agent that orchestrates 19 tools (nmap, gobuster, sqlmap, Metasploit parsers, and more). It reads tool output, decides the next move, and writes a professional Markdown report with severity ratings and fix advice. Supports Claude, Gemini, or a built-in deterministic planner. Hard safety rails enforce lab-only targeting (DVWA).",
       tools: "Python, Claude API, Gemini API, nmap, gobuster, sqlmap, nuclei, XSStrike, Hydra, Metasploit parsers, Streamlit UI.",
       outcome: "A repeatable, safe pentest workflow that produces consistent findings, faster triage, and professional reports — demonstrating LLM-driven multi-step tool orchestration with enforceable safety constraints.",
       link: "https://github.com/svemula17/pentest-agent"
@@ -583,16 +583,32 @@
    ScrollReveal safety net
    SR hides elements (opacity:0) then animates them in via rAF. If those
    frames never arrive — background tab, low-power mode, a throttled
-   webview — the content stays invisible with no way to recover. Anything
-   sitting in the viewport and still fully transparent gets forced visible.
+   webview — the content stays invisible with no way to recover.
+
+   Scoped to an explicit list, NOT to [style*="visibility"]: GSAP's
+   autoAlpha writes inline visibility too, so the broad selector also
+   matched 40 nodes inside #journey and wiped the transforms driving the
+   laptop, painting every OS window at once on top of the hero.
    ========================================================= */
 (() => {
   if (!window.ScrollReveal) return;
 
+  const SELECTOR = [
+    ".hero-title", ".hero-lead", ".hero-actions", ".hero-contact",
+    ".hero-stats", ".section-head", ".proj-head", ".about-body",
+    ".about-meta", ".skill-block", ".tech-item", ".cert-card",
+    ".edu-card", ".info-list li", ".contact-form", ".contact-info"
+  ].join(",");
+
   function rescue() {
-    document.querySelectorAll('[style*="visibility"]').forEach(el => {
+    document.querySelectorAll(SELECTOR).forEach(el => {
+      if (el.closest("#journey")) return;          // never touch GSAP's territory
       const r = el.getBoundingClientRect();
-      const inView = r.top < window.innerHeight && r.bottom > 0 && r.width > 0;
+      /* If the viewport height reads 0 — some embedded/webview contexts do
+         that — every in-view test fails and the net never fires, which is
+         precisely the situation it exists for. Treat unknown as "show it". */
+      const vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      const inView = vh === 0 || (r.top < vh && r.bottom > 0 && r.width > 0);
       if (inView && getComputedStyle(el).opacity === "0") {
         el.style.opacity = "1";
         el.style.transform = "none";
@@ -600,7 +616,6 @@
     });
   }
 
-  /* one pass after SR has had time to animate normally, then on scroll */
   setTimeout(rescue, 2000);
   let queued = false;
   window.addEventListener("scroll", () => {
