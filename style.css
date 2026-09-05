@@ -181,6 +181,25 @@ p { margin: 0; }
   50%      { box-shadow: 0 0 0 7px transparent; }
 }
 @media (prefers-reduced-motion: reduce) { .status-dot { animation: none; } }
+/* hero achievement pill — sits under the availability line, same mono voice */
+.hero-award {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--sp-3);
+}
+.hero-award-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: .04em;
+  color: var(--accent-2);
+  padding: 5px 12px;
+  border: 1px solid var(--accent-2);
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+}
 .mono { font-family: var(--font-mono); letter-spacing: 0; }
 .small { font-size: var(--fs-sm); }
 .muted { color: var(--muted); }
@@ -834,7 +853,7 @@ main, .footer { position: relative; z-index: 1; }
   position: relative;
   /* 65vh per slide, not 100vh: a full viewport of scroll per project made the
      section 4 screens tall, which is longer than most visitors will stay. */
-  height: 325vh; /* 5 slides */
+  height: 390vh; /* 6 slides */
 }
 .proj-stage {
   position: sticky;
@@ -923,6 +942,26 @@ main, .footer { position: relative; z-index: 1; }
   border-radius: var(--r-pill);
   background: var(--glass);
 }
+/* featured-project award pill — same chip tokens as .proj-tags, accent state.
+   Scoped to .proj-text > so it outranks the serif/muted paragraph defaults. */
+.proj-text > .proj-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin: 0;
+  max-width: none;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  color: var(--accent-2);
+  padding: 4px 10px;
+  border: 1px solid var(--accent-2);
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+}
 .proj-cta {
   display: flex;
   gap: var(--sp-6);
@@ -950,6 +989,17 @@ main, .footer { position: relative; z-index: 1; }
 .proj-visual:hover img { filter: grayscale(0%); }
 .proj-visual--art img { filter: none; }
 .proj-visual--art:hover img { filter: none; }
+
+/* screenshot-pending slot — inherits the .proj-visual frame so the grid stays balanced */
+.proj-visual--placeholder {
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
 /* dark-mode photo treatment — keeps screenshots feeling at home on dark surfaces */
 [data-ui="dark"] .proj-visual img { filter: grayscale(100%) brightness(.9); }

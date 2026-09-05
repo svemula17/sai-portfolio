@@ -30,7 +30,7 @@
   <!-- Swiper — recommendations carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <link rel="stylesheet" href="style.css?v=82" />
+  <link rel="stylesheet" href="style.css?v=85" />
 </head>
 
 <body>
@@ -95,6 +95,9 @@
         <p class="hero-status reveal">
           <span class="status-dot" aria-hidden="true"></span>
           Available for DevSecOps, cloud security, and security engineering roles · New Jersey, USA
+        </p>
+        <p class="hero-award reveal">
+          <span class="hero-award-pill">🏆 Finalist — Dell x NVIDIA Local AI Hackathon (NYC, Aug 2026)</span>
         </p>
       </div>
 
@@ -306,7 +309,7 @@
 
 
     <section id="projects" class="projects">
-      <div class="proj-scroller" data-slide-count="5">
+      <div class="proj-scroller" data-slide-count="6">
         <div class="proj-stage">
           <div class="container proj-stage-inner">
             <div class="proj-head">
@@ -316,7 +319,27 @@
 
             <div class="proj-slides">
 
-            <article class="proj-slide is-active" data-case-key="siem">
+            <article class="proj-slide is-active" data-case-key="sentry">
+              <div class="proj-text">
+                <p class="proj-badge">🏆 Finalist — Dell x NVIDIA Local AI Hackathon · NYC · Aug 2026</p>
+                <p class="eyebrow">Agentic AI Security / Edge AI</p>
+                <h3>SENTRY — Self-Learning Security Camera Agent (100% On-Device AI)</h3>
+                <p>A door camera whose alerting policy is learned, not written. SENTRY runs face recognition, a contextual-bandit reinforcement learning policy, and LLM narration on-device on a Dell Pro Max GB10 — faceprints never leave it. In 12 hours a team of 6 cut 59 alerts to 9 on 100 held-out events: all warranted, 94% agreement, zero missed urgents. Privacy by design, with LLM guardrails and a safety floor the policy can't override.</p>
+                <ul class="proj-tags">
+                  <li>Python</li><li>FastAPI</li><li>InsightFace</li><li>Contextual bandit RL</li><li>NVIDIA Nemotron</li><li>Ollama</li><li>MongoDB</li><li>OpenShell</li>
+                </ul>
+                <div class="proj-cta">
+                  <button class="link-btn" type="button" data-case="sentry">Case study →</button>
+                  <!-- TODO: repo link -->
+                </div>
+              </div>
+              <div class="proj-visual proj-visual--placeholder" aria-hidden="true">
+                <!-- TODO: screenshot -->
+                <span>SENTRY · 100% on-device AI</span>
+              </div>
+            </article>
+
+            <article class="proj-slide" data-case-key="siem">
               <div class="proj-text">
                 <p class="eyebrow">SIEM / SOAR</p>
                 <h3>Smart SIEM Risk Engine</h3>
@@ -391,7 +414,7 @@
             </div><!-- /.proj-slides -->
 
             <div class="proj-progress" aria-hidden="true">
-              <span class="proj-num mono">01 / 04</span>
+              <span class="proj-num mono">01 / 06</span>
               <div class="proj-bar"><span></span></div>
             <article class="proj-slide" data-case-key="vigil">
               <div class="proj-text">
@@ -841,7 +864,7 @@
   <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <!-- Swiper — recommendations carousel -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js?v=40"></script>
+  <script src="script.js?v=41"></script>
   <script src="animations.js?v=3"></script>
   <script defer src="contrib-bg.js?v=4"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
