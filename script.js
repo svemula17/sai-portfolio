@@ -333,8 +333,8 @@
     pentest: {
       title: "AI Pen-Test Agent",
       problem: "Manual penetration testing is slow, inconsistent, and requires an expert who knows dozens of specialized tools and when to use each one.",
-      built: "An autonomous penetration testing agent that orchestrates 19 tools (nmap, gobuster, sqlmap, Metasploit parsers, and more). It reads tool output, decides the next move, and writes a professional Markdown report with severity ratings and fix advice. Supports Claude, Gemini, or a built-in deterministic planner. Hard safety rails enforce lab-only targeting (DVWA).",
-      tools: "Python, Claude API, Gemini API, nmap, gobuster, sqlmap, nuclei, XSStrike, Hydra, Metasploit parsers, Streamlit UI.",
+      built: "An autonomous penetration testing agent that orchestrates 29 tools (nmap, gobuster, sqlmap, Metasploit parsers, and more) as a LangGraph state machine. It reads tool output, decides the next move, and writes a professional Markdown report with severity ratings and fix advice. Supports Claude, Gemini, or a built-in deterministic planner. Hard safety rails enforce lab-only targeting (DVWA).",
+      tools: "Python, LangGraph, Claude API, Gemini API, nmap, gobuster, sqlmap, nuclei, XSStrike, Hydra, Metasploit parsers, Streamlit UI.",
       outcome: "A repeatable, safe pentest workflow that produces consistent findings, faster triage, and professional reports — demonstrating LLM-driven multi-step tool orchestration with enforceable safety constraints.",
       link: "https://github.com/svemula17/pentest-agent"
     },
