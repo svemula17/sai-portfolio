@@ -11,7 +11,7 @@
   const el = document.getElementById("roleTyper");
   if (!el) return;
 
-  const roles = ["DevSecOps Engineer", "Cloud Security Engineer", "Cybersecurity Analyst"];
+  const roles = ["DevSecOps Engineer", "Cloud Security Engineer", "Cybersecurity Engineer"];
   const TYPE_MS = 45, ERASE_MS = 25, HOLD_MS = 2200, GAP_MS = 350;
   let i = 0, timer = 0, stopped = false;
 
